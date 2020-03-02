@@ -1,0 +1,43 @@
+.icon-border{
+    width: 300px;
+    height: 150px;
+    padding : 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    border : none;
+}
+
+.small-icon{
+    width: 20px;
+    height: 20px;
+}
+.center-icon{
+    width: 30px;
+    height: 30px;
+}
+.medium-icon{
+    width: 50px;
+    height: 50px;
+}
+
+.small-font-size{
+    font-size: 13px;
+}
+.medium-font-size{
+    font-size: 17px;
+}
+
+.user-size{
+    width: 40px;
+    height: 40px;
+}
+
+.large-icon{
+    width: 100px;
+    height: 100px;
+}
+
+.picture-size{
+    width: 250px;
+    height: 250px;
+}
