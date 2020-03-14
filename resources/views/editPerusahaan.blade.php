@@ -19,66 +19,41 @@
             <div class="row">
                 <div class="col-12">
                     <!-- search -->
-                    <form action="" class="">
+                    <form action="/editPerusahaan/submit" class="" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col">
                                 <label>Nama Perusahaan</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="nama_perusahaan">
                             </div>
                             <div class="col">
                                 <label>Email Perusahaan</label>
-                                <input type="text" class="form-control">                   
+                                <input type="text" class="form-control" name="email_perusahaan">                   
                             </div>
-                        </div>
-
-                        <div class="row mt-3">
-                            <div class="col">
-                                <label>Provinsi</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col">
-                                <label>Kabupaten</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col">
-                                <label>Kecamatan</label>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-
+                        </div>                       
                         <div class="row mt-3">
                             <div class="col">
                                 <label>Alamat Perusahaan</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="alamat_perusahaan">
                             </div>
                         </div>
 
                         <div class="row mt-3">
                             <div class="col">
                                 <label>Bidang Industri</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="industri">
                             </div>
                             <div class="col">
                                 <label>Telp Perusahaan</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="telpon_perusahaan">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
-                                <div class="row">
-                                    <div class="col-2 text-center">
-                                        <div class="shadow p-3 mb-5 bg-white rounded mt-4">
-                                        <img src="img/user.png" class="img-fluid large-icon"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-2 mt-4 text-center">
-                                        <b>Logo Perusahaan</b>
-                                        <small class="text-secondary">File PNG/JPG</small>
-                                    </div>
-                                    <div class="col-8 text-right mt-5 p-3">
-                                        <button class="btn btn-primary rounded-pill pl-5 pr-5 p-2">SIMPAN</button>
+                                <div class="row">                     
+                                    <div class="col-12 text-right mt-5 p-3">
+                                        <button class="btn btn-primary rounded-pill pl-5 pr-5 p-2" type="submit">SIMPAN</button>
                                     </div>
                                 </div>
                             </div> 

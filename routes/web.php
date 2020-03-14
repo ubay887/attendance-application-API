@@ -54,6 +54,10 @@ Route::get('/editPerusahaan',function(){
     return view('editPerusahaan');
 });
 
+//crud edit perusahaan
+    Route::post('editPerusahaan/submit','PerusahaanController@store');
+//end edit perusahaan
+
 Route::get('/editKaryawan',function(){
     return view('editKaryawan');
 });
