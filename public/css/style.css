@@ -41,3 +41,9 @@
     width: 250px;
     height: 250px;
 }
+
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
