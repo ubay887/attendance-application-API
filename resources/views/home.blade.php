@@ -162,7 +162,7 @@
         @foreach ($perusahaan as $item)
           <h4 class="mt-3">{{ $item->nama_perusahaan }}</h4>
         @endforeach        
-        <a href="">Grafik perusahaan</a>
+        <a href="/chart">Grafik perusahaan</a>
       </div>
     </div>
 

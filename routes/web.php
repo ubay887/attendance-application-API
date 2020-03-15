@@ -13,6 +13,10 @@
 
     Route::get('/','HomeController@index');
 
+    Route::get('/chart',function(){
+        return view('chart');
+    });
+
 //crud pegawai
 
     //index
