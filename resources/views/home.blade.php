@@ -40,7 +40,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded ">
       <div class="row">
         <div class="col-6">
-          <h3>0</h3>
+          <h3>{{ $user }}</h3>
           <div class="text-muted">Pegawai</div>
         </div>
         <div class="col-6">
@@ -159,7 +159,9 @@
     <div class="col-12 text-center mb-3">
       <div class="shadow-lg p-3 rounded">
         <img src="img/user.png" alt="" class="img-fluid">
-        <h4 class="mt-3">PT.SETIA KARYA</h4>
+        @foreach ($perusahaan as $item)
+          <h4 class="mt-3">{{ $item->nama_perusahaan }}</h4>
+        @endforeach        
         <a href="">Grafik perusahaan</a>
       </div>
     </div>
@@ -170,46 +172,39 @@
           <div class="text-center col-12">
             <h4>Contact</h4>
           </div>
-          <div class="col-12 mt-3">
+          @foreach ($perusahaan as $item)
+            <div class="col-12 mt-3">
             <span>
               <img src="img/telpon.png" alt="" class="small-icon img-fluid">
             </span>
-            <span class="small-font-size">Telepon : +62-878-8888-88</span>
+            <span class="small-font-size">Telepon : {{ $item->telpon_perusahaan }}</span>
           </div>
           <div class="col-12  mt-3">
             <span>
               <img src="img/email.png" alt="" class="small-icon img-fluid">
-            </span>
-            <span class="small-font-size">Email : chelle@gmail.com</span>
+            </span> 
+            <span class="small-font-size">Email :{{ $item->email_perusahaan }}/span>
           </div>
           <div class="col-12  mt-3">
             <span>
               <img src="img/placeholder.png" alt="" class="small-icon img-fluid">
             </span>
-            <span class="small-font-size">Alamat : jl.Suka, 28A</span>
+            <span class="small-font-size">Alamat :{{ $item->alamat_perusahaan }}</span>
           </div>
-          <div class="col-12  mt-3">
-            <span>
-              <img src="img/telpon.png" alt="" class="small-icon img-fluid">
-            </span>
-            <span class="small-font-size">Telepon : +62-878-8888-88</span>
-          </div>
+          @endforeach  
+          
           <div class="col-12  mt-3">
             <span>
               <img src="img/all.png" alt="" class="small-icon img-fluid">
             </span>
-            <span class="small-font-size">Industri : -</span>
-          </div>
-          <div class="col-12  mt-3">
-            <span>
-              <img src="img/kalender.png" alt="" class="small-icon img-fluid">
-            </span>
-            <span class="small-font-size">Tanggal Daftar : 12-10-19</span>
-          </div>
+            <span class="small-font-size">Industri : {{ $item->industri }}</span>
+          </div>          
         </div>
       </div>
     </div>
   </div>
+
+ 
 
 @endsection
 

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use App\Home;
+use App\Perusahaan;
+
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,8 +19,13 @@ class HomeController extends Controller
     public function index()
     {
         //
-        $user = Home::all()->count();
-        
+        $user = Profile::count();
+        $perusahaan = Perusahaan::all();
+        //return $perusahaan;             
+        return view('home',[
+            "user"=>$user,
+            "perusahaan"=>$perusahaan
+        ]);
     }
 
     /**
