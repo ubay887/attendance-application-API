@@ -161,7 +161,7 @@
         <img src="img/user.png" alt="" class="img-fluid">
         @foreach ($perusahaan as $item)
           <h4 class="mt-3">{{ $item->nama_perusahaan }}</h4>
-        @endforeach        
+        @endforeach
         <a href="/chart" class="text-decoration-none text-success">Grafik perusahaan</a>
       </div>
     </div>
@@ -191,19 +191,17 @@
             </span>
             <span class="small-font-size">Alamat :{{ $item->alamat_perusahaan }}</span>
           </div>
-          @endforeach  
-          
           <div class="col-12  mt-3">
             <span>
               <img src="img/all.png" alt="" class="small-icon img-fluid">
             </span>
             <span class="small-font-size">Industri : {{ $item->industri }}</span>
           </div>          
+          @endforeach
         </div>
       </div>
     </div>
-  </div>
-
+  </div>  
  
 
 @endsection

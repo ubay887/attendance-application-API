@@ -51,6 +51,14 @@ class pegawaiController extends Controller
             "status_karyawan" => "required",
             "no_hp" => "required",
             "jabatan" => "required",
+            "no_ktp" => "required",
+            "gender" => "required",
+            "tgl_lahir" => "required",
+            "tempat_lahir" => "required",
+            "gol_darah" => "required",
+            "agama" => "required",
+            "tinggi_badan" => "required",
+            "berat_badan" => "required"
         ]);
         
         $password = "siabsen@".$request->nik_pegawai;
@@ -69,6 +77,14 @@ class pegawaiController extends Controller
         $profile->jatah_cuti = $request->jatah_cuti;
         $profile->status = $request->status_karyawan;
         $profile->jabatan = $request->jabatan;
+        $profile->no_ktp = $request->no_ktp;
+        $profile->gender = $request->gender;
+        $profile->tgl_lahir = $request->tgl_lahir;
+        $profile->tempat_lahir = $request->tempat_lahir;
+        $profile->gol_darah = $request->gol_darah;
+        $profile->agama = $request->agama;
+        $profile->tinggi_badan = $request->tinggi_badan;
+        $profile->berat_badan = $request->berat_badan;
         $profile->save();
                 
         return redirect('/pegawai');
