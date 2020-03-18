@@ -44,20 +44,22 @@
             <div class="col-12">
               <table class="table mt-4">
                 <thead class="thead-light">
-                    <th scope="col">Nama</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Divisi</th>
-                    <th scope="col">Jabatan</th>
-                    <th scope="col">Mulai Kerja</th>
-                    <th scope="col" colspan="2" class="text-center">Aksi</th>
+                  <th>foto</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Divisi</th>
+                  <th scope="col">Jabatan</th>
+                  <th scope="col">Mulai Kerja</th>
+                  <th scope="col" colspan="2" class="text-center">Aksi</th>
                 </thead>
                 <tbody>                                    
-                  @foreach ($pegawai as $p)
+                  @foreach ($pegawai as $p)                  
                     <tr>
                       <td scope="row"><img src="img/user.png" class="img-circle center-icon" onclick="userProfil()" /><span class="ml-2"></span></td>
-                      <td>{{ $p->email }}</td> 
-                      <td>{{ $p->profile->divisi }}</td>
-                      <td>{{ $p->profile->jabatan }}</td>
+                      <td>{{ $p->nama }}</td> 
+                      <td>{{ $p->email }}</td>
+                      <td>{{ $p->profile->divisi }}</td>                    
+                      <td>{{ $p->profile->jabatan }}</td>                    
                       <td>{{ $p->profile->tgl_mulai_kerja }}</td>
                       <td>
                         <button class="btn btn-primary pl-4 pr-4">Edit</button>                        

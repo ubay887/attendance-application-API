@@ -17,6 +17,15 @@
             <div class="card col-12 bg-white rounded-lg mt-5 mb-5 p-3">
                 <div class="row">
                     <div class="col-12">
+                        @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <!-- search -->
                         <form action="/pegawai/submit" class="" method="POST">
                             @csrf
@@ -106,9 +115,12 @@
                                 </div>
                                 <div class="col"> 
                                     <label>Berat Badan</label>
-                                    <input type="number" class="form-control" name="status_karyawan">
+                                    <input type="number" class="form-control" name="berat_badan">
                                 </div> 
-                                     
+                                <div class="col"> 
+                                    <label> alamat</label>
+                                    <input type="text" class="form-control" name="alamat">
+                                </div> 
                             </div>
 
                             <div class="row">

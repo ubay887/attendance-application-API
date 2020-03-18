@@ -58,7 +58,8 @@ class pegawaiController extends Controller
             "gol_darah" => "required",
             "agama" => "required",
             "tinggi_badan" => "required",
-            "berat_badan" => "required"
+            "berat_badan" => "required",
+            "alamat"=>"required",
         ]);
         
         $password = "siabsen@".$request->nik_pegawai;
@@ -66,6 +67,7 @@ class pegawaiController extends Controller
         $pegawai = new Pegawai;
         $pegawai->email=$request->email;                
         $pegawai->password= bcrypt($password);
+        $pegawai->nama = $request->nama;
         $pegawai->save();
 
         $profile = new Profile;
@@ -85,6 +87,7 @@ class pegawaiController extends Controller
         $profile->agama = $request->agama;
         $profile->tinggi_badan = $request->tinggi_badan;
         $profile->berat_badan = $request->berat_badan;
+        $profile->alamat = $request->alamat;
         $profile->save();
                 
         return redirect('/pegawai');
