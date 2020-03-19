@@ -20,9 +20,9 @@
               </div>
               <div class="col-7">
                 <!-- search -->
-                <form action="" class="">
+                <form action="/pegawaicari" class="GET">
                   <div class="row">
-                    <div class="col">                                
+                    <div class="col">
                       <select name="" id="" class="form-control">
                           <option value="">Stevanus</option>
                           <option value="">Veri</option>
@@ -30,11 +30,11 @@
                       </select>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Cari Data">
+                        <input type="text" class="form-control" placeholder="Cari Data" value="{{ old('cari') }}" name="cari">
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary">CARI</button>
-                    </div>                                    
+                        <button type="submit" class="btn btn-primary">CARI</button>
+                    </div>  
                   </div>                          
                 </form>
                 <!-- tutup search -->

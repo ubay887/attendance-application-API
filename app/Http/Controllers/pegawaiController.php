@@ -20,6 +20,13 @@ class pegawaiController extends Controller
         return view('pegawai',compact('pegawai'));
     }
 
+    public function cari(Request $request)
+    {
+        $cari = $request->cari;
+        $pegawai = Pegawai::where('nama','like',"%".$cari."%")->get();
+        return view('pegawai',compact('pegawai'));
+
+    }
     /**
      * Show the form for creating a new resource.
      *

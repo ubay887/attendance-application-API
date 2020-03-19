@@ -32,6 +32,11 @@
         return view('manajemenPegawai');
     });
 
+    //SEARCH
+    Route::get('/pegawaicari','pegawaiController@cari');
+
+    
+
 //end crud pegawai
 
 Route::get('/pengajuan', function () {
