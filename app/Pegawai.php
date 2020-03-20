@@ -20,4 +20,8 @@ class Pegawai extends Model
     public function  penugasan(){
         return $this->hasMany(Penugasan::class , 'id_user');
     }
+
+    public function  cuti(){
+        return $this->hasMany(Cuti::class , 'id_user');
+    }
 }

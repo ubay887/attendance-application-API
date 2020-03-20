@@ -39,9 +39,19 @@
 
 //end crud pegawai
 
-Route::get('/pengajuan', function () {
-    return view('pengajuan');
-});
+
+// cuti
+
+// Route::get('/pengajuan', function () {
+//     return view('pengajuan');
+// });
+Route::get('/pengajuan','CutiController@show');
+
+// delete
+Route::delete('/pengajuan/delete/{id}','CutiController@destroy');
+
+// end cuti
+
 
 Route::get('/dataAbsensi', function () {
     return view('dataAbsensi');

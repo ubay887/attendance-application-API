@@ -35,21 +35,27 @@
                   <th scope="col">Lama Hari</th>
                   <th scope="col">Sisa Cuti</th>
                   <th scope="col" onclick="keterangan()">Keterangan</th>
-                  <th scope="col">Aksi</th>
+                  <th scope="col" colspan="2">Aksi</th>
                 </thead>
                 <tbody>
-                  <tr>
-                      <td scope="row"><img src="img/user.png" class="img-circle center-icon"/><span class="ml-2">Michelle S</span></td>
-                      <td>1 November 2019</td>
-                      <td>8 November 2019</td>
-                      <td>3 Hari</td>
-                      <td>5 Hari</td>
-                      <td>Acara Nikahan</td>
-                      <td>
-                        <button class="btn btn-primary pl-4 pr-4">Setuju</button>
-                        <button class="btn btn-primary pl-4 pr-4">Tolak</button>
-                      </td>
-                  </tr>
+                  @foreach($cuti as $c)
+                    <tr>
+                        <td scope="row"><img src="img/user.png" class="img-circle center-icon"/><span class="ml-2">{{ $c->pegawai->nama }}</span></td>
+                        <td>{{ $c->tgl_ajukan }}</td>
+                        <td>{{ $c->mulai_cuti }}</td>
+                        <td>{{ $c->lama_cuti }}</td>
+                        <td>2 Hari</td>
+                        <td>{{ $c->alasan }}</td>
+                        <td>
+                          <form action="/pengajuan/delete/{{ $c->id }}" method="post">
+                            @csrf
+                            @method('delete')
+                              <button class="btn btn-primary pl-4 pr-4">Setuju</button>
+                              <button class="btn btn-primary pl-4 pr-4">Tolak</button>
+                          </form>
+                        </td>
+                    </tr>
+                  @endforeach
                 </tbody>
           </table>
         </div>
