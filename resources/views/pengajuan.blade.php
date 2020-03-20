@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-12">
-    <div class="row mt-3">
+    <div class="row mt-3 ml-2">
       <div class="col-12 border-bottom mt-4">
         <a href="/pengajuan" class="text-dark"><span class="mr-4"><img src="img/010-contract.png" class="center-icon img-fluid mr-2" />Cuti</span></a>
         <a href="/ijin" class="text-dark"><span><img src="img/037-responsive.png" class="center-icon img-fluid mr-2" />Ijin</span></a>
