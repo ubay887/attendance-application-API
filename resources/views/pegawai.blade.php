@@ -22,13 +22,7 @@
                 <!-- search -->
                 <form action="/pegawaicari" class="GET">
                   <div class="row">
-                    <div class="col">
-                      <select name="" id="" class="form-control">
-                          <option value="">Stevanus</option>
-                          <option value="">Veri</option>
-                          <option value="">Christian</option>
-                      </select>
-                    </div>
+                    <div class="col"> </div>
                     <div class="col">
                         <input type="text" class="form-control" placeholder="Cari Data" value="{{ old('cari') }}" name="cari">
                     </div>
@@ -55,7 +49,9 @@
                 <tbody>                                    
                   @foreach ($pegawai as $p)                  
                     <tr>
-                      <td scope="row"><img src="img/user.png" class="img-circle center-icon" onclick="userProfil()" /><span class="ml-2"></span></td>
+                      <td scope="row">
+                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer" onclick="userProfil()" />
+                      </td>
                       <td>{{ $p->nama }}</td> 
                       <td>{{ $p->email }}</td>
                       <td>{{ $p->profile->divisi }}</td>                    
