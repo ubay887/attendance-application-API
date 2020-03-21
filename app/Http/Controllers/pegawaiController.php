@@ -97,7 +97,7 @@ class pegawaiController extends Controller
         $profile->alamat = $request->alamat;
         $profile->save();
                 
-        return redirect('/pegawai');
+        return redirect('/pegawai')->with('status','Data pegawai berhasil ditambahkan');
         
     }
 

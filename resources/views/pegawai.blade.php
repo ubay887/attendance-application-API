@@ -46,11 +46,16 @@
                   <th scope="col">Mulai Kerja</th>
                   <th scope="col" colspan="2" class="text-center">Aksi</th>
                 </thead>
-                <tbody>                                    
+                <tbody>            
+                  @if (session('status'))
+                    <div class="alert alert-success">
+                      {{ session('status') }}
+                    </div>
+                  @endif
                   @foreach ($pegawai as $p)                  
                     <tr>
                       <td scope="row">
-                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer" onclick="userProfil()" />
+                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer" onclick="userProfile('{{$p->nama}}','{{$p->email}}')" />
                       </td>
                       <td>{{ $p->nama }}</td> 
                       <td>{{ $p->email }}</td>
@@ -76,4 +81,25 @@
         </div>
       </div>
     
+@endsection
+
+@section('script')
+  <script>
+    function userProfile(nama,email){
+      Swal.fire({
+        html : `
+          <table>
+            <tr>
+              <td>nama</td>
+              <td>email</td>
+            </tr>
+            <tr>
+              <td>${nama}</td>
+              <td>${email}</td>
+            </tr>
+          </table>
+        `,
+      })
+    }
+  </script>
 @endsection
