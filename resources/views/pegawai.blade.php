@@ -55,7 +55,7 @@
                   @foreach ($pegawai as $p)                  
                     <tr>
                       <td scope="row">
-                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer" onclick="userProfile('{{$p->nama}}','{{$p->email}}')" />
+                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer" onclick="userProfile('{{$p->nama}}','{{$p->email}}','{{$p->profile->divisi}}','{{$p->profile->jabatan}}','{{$p->profile->tgl_mulai_kerja}}')" />
                       </td>
                       <td>{{ $p->nama }}</td> 
                       <td>{{ $p->email }}</td>
@@ -85,18 +85,28 @@
 
 @section('script')
   <script>
-    function userProfile(nama,email){
+    function userProfile(nama,email,divisi,jabatan,tgl_mulai_kerja){
       Swal.fire({
         html : `
-          <table>
-            <tr>
-              <td>nama</td>
-              <td>email</td>
-            </tr>
-            <tr>
-              <td>${nama}</td>
-              <td>${email}</td>
-            </tr>
+          <table class="table">
+            <thead>
+              <tr>
+                <td>nama</td>
+                <td>email</td>
+                <td>divisi</td>
+                <td>jabatan</td>
+                <td>tgl mualai kerja</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>${nama}</td>
+                <td>${email}</td>
+                <td>${divisi}</td>
+                <td>${jabatan}</td>
+                <td>${tgl_mulai_kerja}</td>
+              </tr>
+            </tbody>            
           </table>
         `,
       })

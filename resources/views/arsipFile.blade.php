@@ -15,10 +15,9 @@
   <div class="row">
     <div class="col-12">
       <div class="row">
-        <div class="col-12 border-bottom mt-4">
-          <a href="/editKaryawan" class="text-dark"><span class="mr-4">1. Data Personal</span></a>
-          <a href="/pendidikan" class="text-dark"><span class="mr-4">2. Pendidikan</span></a>
-          <a href="/arsipFile" class="text-dark"><span>3. Arsip File</span></a>
+        <div class="col-12 border-bottom mt-4">          
+          <a href="/pendidikan" class="text-dark mr-4 text-decoration-none">1. Pendidikan</a>
+          <a href="/arsipFile" class="text-dark text-decoration-none"><span>2. Arsip File</span></a>
         </div>
       </div>
     </div>

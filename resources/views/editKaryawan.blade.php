@@ -1,4 +1,4 @@
-@extends('layout.layout')
+{{-- @extends('layout.layout')
 
 @section('content')
 <div class="container">
@@ -15,8 +15,7 @@
     <div class="row">
         <div class="col-12">
             <div class="row">
-                <div class="col-12 border-bottom mt-4">
-                    <a href="/editKaryawan" class="text-dark"><span class="mr-4">1. Data Personal</span></a>
+                <div class="col-12 border-bottom mt-4">                    
                     <a href="/pendidikan" class="text-dark"><span class="mr-4">2. Pendidikan</span></a>
                     <a href="/arsipFile" class="text-dark"><span>3. Arsip File</span></a>
                 </div>
@@ -100,4 +99,4 @@
 </div>
 @endsection
         
-        
+         --}}

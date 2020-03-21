@@ -76,12 +76,12 @@ Route::get('/editPerusahaan',function(){
 //end edit perusahaan
 
 Route::get('/editKaryawan',function(){
-    return view('editKaryawan');
+    return view('pendidikan');
 });
 
 Route::get('/editProfile',function(){
     return view('editProfile');
-});
+    });
 
 Route::get('/akun',function(){
     return view('akun');
