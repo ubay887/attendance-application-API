@@ -24,4 +24,8 @@ class Pegawai extends Model
     public function  cuti(){
         return $this->hasMany(Cuti::class , 'id_user');
     }
+
+    public function  ijin(){
+        return $this->hasMany(Ijin::class , 'id_user');
+    }
 }

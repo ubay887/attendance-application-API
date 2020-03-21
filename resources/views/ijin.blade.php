@@ -35,20 +35,26 @@
                       <th scope="col">Lama Hari</th>
                       <th scope="col">Alasan Ijin</th>
                       <th scope="col">Penjelasan Detail</th>
-                      <th scope="col">Aksi</th>
+                      <th scope="col" colspan="2">Aksi</th>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td scope="row"><img src="img/user.png" class="img-circle center-icon"/><span class="ml-2">Michelle S</span></td>
-                        <td>8 November 2019</td>
-                        <td>3 Hari</td>
-                        <td>Sakit</td>
-                        <td>Demam</td>
-                      <td>
-                        <button class="btn btn-primary pl-4 pr-4">Setuju</button>
-                        <button class="btn btn-primary pl-4 pr-4">Tolak</button>
-                      </td>
-                    </tr>
+                    @foreach($ijin as $i)
+                      <tr>
+                        <td scope="row"><img src="img/user.png" class="img-circle center-icon"/><span class="ml-2">{{ $i->pegawai->nama }}</span></td>
+                          <td>{{$i->tgl_mulai}}</td>
+                          <td>{{$i->lama_hari}}</td>
+                          <td>{{$i->alasan_ijin}}</td>
+                          <td>{{$i->desc}}</td>
+                        <td>
+                          <form action="/ijin/delete/{{ $i->id }}" method="post">
+                            @csrf
+                            @method('delete')
+                              <button class="btn btn-primary pl-4 pr-4">Setuju</button>
+                              <button class="btn btn-primary pl-4 pr-4">Tolak</button>
+                          </form>
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

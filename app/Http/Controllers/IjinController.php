@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Cuti;
+use App\Ijin;
 use App\Pegawai;
 use Illuminate\Http\Request;
 
-class CutiController extends Controller
+class IjinController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,24 +42,24 @@ class CutiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cuti  $cuti
+     * @param  \App\Ijin  $ijin
      * @return \Illuminate\Http\Response
      */
-    public function show(Cuti $cuti)
+    public function show(Ijin $ijin)
     {
         //join 1 table 
-        $cuti = Cuti::with('pegawai')->get();
+        $ijin = Ijin::with('pegawai')->get();
         // return $pengajuan;
-        return view('/pengajuan',compact('cuti'));    
+        return view('/ijin',compact('ijin'));  
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cuti  $cuti
+     * @param  \App\Ijin  $ijin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cuti $cuti)
+    public function edit(Ijin $ijin)
     {
         //
     }
@@ -68,10 +68,10 @@ class CutiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cuti  $cuti
+     * @param  \App\Ijin  $ijin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cuti $cuti)
+    public function update(Request $request, Ijin $ijin)
     {
         //
     }
@@ -79,12 +79,12 @@ class CutiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cuti  $cuti
+     * @param  \App\Ijin  $ijin
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ijin $ijin)
     {
-        $cuti = Cuti::findOrFail($id)->delete();
-        return redirect('/pengajuan');
+        $ijin = Ijin::findOrFail($id)->delete();
+        return redirect('/ijin');
     }
 }

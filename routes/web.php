@@ -100,9 +100,16 @@ Route::get('/arsipFile',function(){
 });
 
 
-Route::get('/ijin',function(){
-    return view('ijin');
-});
+// Route::get('/ijin',function(){
+//     return view('ijin');
+// });
+
+// ijin
+Route::get('/ijin','IjinController@show');
+
+// delete
+Route::delete('/ijin/delete/{id}','IjinController@destroy');
+
 
 
 //crud tambah penguasan    
