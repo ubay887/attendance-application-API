@@ -33,7 +33,12 @@
             <!-- search -->
             <form action="" class="">
               <div class="row">
-                <div class="col-22 ml-3">
+                <div class="col-2 ml-3">
+                  <select name="" id="">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <div class="col-2 ml-3">
                   <input type="text" class="form-control" placeholder="Nama Sekolah">
                 </div>
                 <div class="col-2 ml-3">

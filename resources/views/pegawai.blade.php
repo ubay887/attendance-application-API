@@ -53,9 +53,9 @@
                     </div>
                   @endif
                   @foreach ($pegawai as $p)                  
-                    <tr>
+                    <tr onclick="userProfile('{{$p->nama}}','{{$p->email}}','{{$p->profile->divisi}}','{{$p->profile->jabatan}}','{{$p->profile->tgl_mulai_kerja}}','{{$p->profile->tgl_lahir}}','{{$p->profile->tempat_lahir}}','{{$p->profile->gol_darah}}','{{$p->profile->status}}','{{$p->profile->agama}}','{{$p->profile->tinggi_badan}}','{{$p->profile->berat_badan}}','{{$p->profile->nik_pegawai}}','{{$p->profile->jatah_cuti}}','{{$p->profile->jam_kerja}}','{{$p->profile->alamat}}',)" style="cursor:pointer">
                       <td scope="row">
-                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer" onclick="userProfile('{{$p->nama}}','{{$p->email}}','{{$p->profile->divisi}}','{{$p->profile->jabatan}}','{{$p->profile->tgl_mulai_kerja}}')" />
+                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer"  />
                       </td>
                       <td>{{ $p->nama }}</td> 
                       <td>{{ $p->email }}</td>
@@ -85,29 +85,31 @@
 
 @section('script')
   <script>
-    function userProfile(nama,email,divisi,jabatan,tgl_mulai_kerja){
+    function userProfile(nama,email,divisi,jabatan,tgl_mulai_kerja,tgl_lahir,tempat_lahir,gol_darah,status,agama,tinggi_badan,berat_badan,nik_pegawai,jatah_cuti,jam_kerja,alamat){
       Swal.fire({
-        html : `
-          <table class="table">
-            <thead>
-              <tr>
-                <td>nama</td>
-                <td>email</td>
-                <td>divisi</td>
-                <td>jabatan</td>
-                <td>tgl mualai kerja</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>${nama}</td>
-                <td>${email}</td>
-                <td>${divisi}</td>
-                <td>${jabatan}</td>
-                <td>${tgl_mulai_kerja}</td>
-              </tr>
-            </tbody>            
-          </table>
+        html : ` 
+          <div class="row">
+            <div class="col text-left">
+              <div> <b>Nama</b> : ${nama} </div>
+              <div> <b>Email</b> : ${email} </div>
+              <div> <b>Divisi</b> : ${divisi} </div>
+              <div> <b>Jabatan</b> : ${jabatan} </div>
+              <div> <b>Tgl kerja</b> : ${tgl_mulai_kerja} </div>
+              <div> <b>Tgl lahir</b> : ${tgl_lahir} </div>
+              <div> <b>Tempat lahir</b> : ${tempat_lahir} </div>
+              <div> <b>Alamat</b> : ${alamat} </div>
+            </div>
+            <div class="col text-left">
+              <div> <b>Goldar :</b> ${gol_darah} </div>
+              <div> <b>Satus :</b> ${status} </div>
+              <div> <b>Agama :</b> ${agama} </div>
+              <div> <b>Tinggi badan :</b> ${tinggi_badan}cm </div>
+              <div> <b>Berat badan :</b> ${berat_badan}kg </div>
+              <div> <b>NIK :</b> ${nik_pegawai} </div>
+              <div> <b>Cuti :</b> ${jatah_cuti} </div>
+              <div> <b>Jam kerja :</b> ${jam_kerja} </div>
+            </div>
+          </div>
         `,
       })
     }
