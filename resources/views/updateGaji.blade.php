@@ -26,11 +26,20 @@
                             @csrf
                             <div class="row">
                                 <div class="col">
-                                    <label>Divisi</label>
+                                    <label>Bulan</label>
                                     <select name="" id="" class="form-control">
-                                        <option value="">Manajer</option>
-                                        <option value="">Pegawai</option>
-                                        <option value="">OB</option>
+                                        <option value="">Januari</option>
+                                        <option value="">Februari</option>
+                                        <option value="">Maret</option>
+                                        <option value="">April</option>
+                                        <option value="">Mei</option>
+                                        <option value="">Juni</option>
+                                        <option value="">Juli</option>
+                                        <option value="">Agustus</option>
+                                        <option value="">September</option>
+                                        <option value="">Oktober</option>
+                                        <option value="">November</option>
+                                        <option value="">Desember</option>
                                     </select>
                                 </div>
                                 <div class="col">
@@ -43,9 +52,8 @@
                                 <div class="col">
                                     <label>Untuk</label>
                                     <select name="" id="" class="form-control">
-                                        <option value="">CEO</option>
-                                        <option value="">Direktur Utama</option>
-                                        <option value="">Supervisor</option>
+                                        <option value="">Michelle</option>
+                                        <option value="">Christian Utama</option>
                                     </select>
                                 </div>
                                 <div class="col">
@@ -60,7 +68,7 @@
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="col">
-                                    <label>Bulan</label>
+                                    <label>Subtotal</label>
                                     <input type="text" class="form-control">
                                 </div>                              
                             </div>

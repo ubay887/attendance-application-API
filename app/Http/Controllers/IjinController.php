@@ -49,7 +49,7 @@ class IjinController extends Controller
     {
         //join 1 table 
         $ijin = Ijin::with('pegawai')->get();
-        // return $pengajuan;
+        // return $pengajuan; 
         return view('/ijin',compact('ijin'));  
     }
 
