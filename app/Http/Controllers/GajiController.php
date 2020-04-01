@@ -103,8 +103,9 @@ class GajiController extends Controller
      * @param  \App\Gaji  $gaji
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gaji $gaji)
+    public function destroy($id)
     {
-        //
+        $gaji = Gaji::findOrFail($id)->delete();
+        return redirect('/slipGaji');
     }
 }
