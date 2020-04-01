@@ -11,7 +11,7 @@
 |
 */
 
-    Route::get('/','HomeController@index');
+    // Route::get('/','HomeController@index');
 
     Route::get('/chart',function(){
         return view('chart');
@@ -143,3 +143,6 @@ Route::get('/updateGaji',function(){
 
     Route::delete('/slipGaji/delete/{id}','GajiController@destroy');
 //end tambah gaji
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

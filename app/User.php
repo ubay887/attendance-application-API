@@ -2,13 +2,15 @@
 
 namespace App;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-// use Illuminate\Foundation\Auth\User as Authenticatable;
-// use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable
 {    
 
+    use Notifiable;
+    public $timestamps = false;
     protected $table = "tbuser";
     protected $primaryKey = "id_user";
 
@@ -18,7 +20,7 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nama', 'email', 'password',
     ];
 
     /**

@@ -150,4 +150,3 @@ class pegawaiController extends Controller
         return redirect('/pegawai');
     }
 }
-

@@ -19,20 +19,20 @@
         <a href="/editPerusahaan" class="text-dark nav-link"><span><img src="img/store-2.png" class="img-fluid small-icon"/>
           <span class="ml-3">Edit Perusahaan</span></span></a>
       </div><br>
-      <div class="card p-4 mt-5">
+      <!-- <div class="card p-4 mt-5">
         <a href="/editKaryawan"class="text-dark nav-link"><span><img src="img/status.png" class="img-fluid small-icon"/><span class="ml-3">Edit Karyawan</span></span></a>
-      </div>
+      </div> -->
   </div>
 
   <div class="col-1"></div>
 
   <div class="col-3 mt-5">
     <div class="card p-4 mt-3">
-      <a href="/akun" class="text-dark nav-link"><span><img src="img/network.png" class="img-fluid small-icon"/><span class="ml-3">Edit Profil</span></span></a>
-    </div><br>
-    <div class="card p-4 mt-5">
       <a href="" class="text-dark nav-link"><span><img src="img/011-logout.png" class="img-fluid small-icon"/><span class="ml-3">Logout</span></span></a>
     </div><br>
+<!--     <div class="card p-4 mt-3">
+      <a href="/akun" class="text-dark nav-link"><span><img src="img/network.png" class="img-fluid small-icon"/><span class="ml-3">Edit Profil</span></span></a>
+    </div><br> -->
   </div>
 
   <div class="col-2">
