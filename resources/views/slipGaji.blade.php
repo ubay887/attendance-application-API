@@ -31,17 +31,27 @@
                       <th scope="col">Bonus</th>
                       <th scope="col">Potongan</th>
                       <th scope="col">Subtotal</th>
+                      <th scope="col">Action</th>
                   </thead>
                 <tbody>
+                  @foreach ($gaji as $g)
                   <tr>
-                      <td scope="row"><span>Michelle S</span></td>
-                      <td>November</td>
-                      <td>Sekretaris</td>
-                      <td>Rp.1.000.000</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>Rp.1.000.000</td>
+                      <td scope="row"><span>{{ $g->pegawai->nama }}</span></td>
+                      <td>{{ $g->bulan }}</td>
+                      <td>{{ $g->pegawai->divisi }}</td>
+                      <td>Rp. {{ $g->jumlah }}</td>
+                      <td>Rp. {{ $g->bonus }}</td>
+                      <td>Rp. {{ $g->potongan }}</td>
+                      <td>Rp. {{ $g->subtotal }}</td>
+                      <td>
+                        <form action="/slipGaji/delete/{{ $g->id }}" method="post">
+                          @csrf
+                          @method('delete')
+                          <input type="submit" value="Hapus" class="btn btn-danger">
+                        </form>
+                      </td>
                     </tr>
+                    @endforeach
                 </tbody>
               </table>
             </div>

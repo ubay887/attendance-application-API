@@ -59,9 +59,14 @@ Route::get('/dataAbsensi', function () {
 
 Route::get('/penugasan','PenugasanController@show');
 
-Route::get('/slipGaji',function(){
-    return view('slipGaji');
-});
+// Route::get('/slipGaji',function(){
+//     return view('slipGaji');
+// });
+
+// slipGaji
+Route::get('/slipGaji','GajiController@show');
+
+
 
 Route::get('/setting',function(){
     return view('setting');
@@ -129,3 +134,12 @@ Route::get('/updateGaji',function(){
     return view('updateGaji');
 });
 
+
+// crud tambah gaji
+    Route::post('/updateGaji/submit','GajiController@store');
+
+    Route::get('/updateGaji',
+    'GajiController@index');
+
+    Route::delete('/slipGaji/delete/{id}','GajiController@destroy');
+//end tambah gaji

@@ -28,4 +28,8 @@ class Pegawai extends Model
     public function  ijin(){
         return $this->hasMany(Ijin::class , 'id_user');
     }
+
+    public function  gaji(){
+        return $this->hasMany(Gaji::class , 'id_user');
+    }
 }

@@ -22,54 +22,56 @@
 
                     <div class="col-6">
                         <!-- search -->
-                        <form action="" class="">
+                        <form action="/updateGaji/submit" class="" method="POST">
                             @csrf
+                            @method('post')
                             <div class="row">
                                 <div class="col">
                                     <label>Bulan</label>
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Januari</option>
-                                        <option value="">Februari</option>
-                                        <option value="">Maret</option>
-                                        <option value="">April</option>
-                                        <option value="">Mei</option>
-                                        <option value="">Juni</option>
-                                        <option value="">Juli</option>
-                                        <option value="">Agustus</option>
-                                        <option value="">September</option>
-                                        <option value="">Oktober</option>
-                                        <option value="">November</option>
-                                        <option value="">Desember</option>
+                                    <select name="bulan" id="bulan" class="form-control">
+                                        <option value="Januari">Januari</option>
+                                        <option value="Februari">Februari</option>
+                                        <option value="Maret">Maret</option>
+                                        <option value="April">April</option>
+                                        <option value="Mei">Mei</option>
+                                        <option value="Juni">Juni</option>
+                                        <option value="Juli">Juli</option>
+                                        <option value="Agustus">Agustus</option>
+                                        <option value="September">September</option>
+                                        <option value="Oktober">Oktober</option>
+                                        <option value="November">November</option>
+                                        <option value="Desember">Desember</option>
                                     </select>
                                 </div>
                                 <div class="col">
                                     <label>Jumlah</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="jumlah" id="jumlah" onkeyup="hitung()" value="0">
                                 </div>                                 
                             </div>
 
                             <div class="row">
                                 <div class="col">
                                     <label>Untuk</label>
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Michelle</option>
-                                        <option value="">Christian Utama</option>
+                                    <select name="id_user" id="" class="form-control">
+                                        @foreach ($pegawai as $p)
+                                            <option value="{{$p->id_user}}">{{$p->nama}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col">
                                     <label>Bonus</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="bonus" id="bonus" onkeyup="hitung()" value="0">
                                 </div>                                
                             </div>
 
                             <div class="row">
                                 <div class="col">
                                     <label>Potongan</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="potongan" id="potongan" onkeyup="hitung()" value="0">
                                 </div>
                                 <div class="col">
                                     <label>Subtotal</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="subtotal" onkeyup="hitung()" id="subtotal" value="">
                                 </div>                              
                             </div>
                         </div>
@@ -88,7 +90,16 @@
     </div>
 </div>
 </div>
-
+<script type="text/javascript">
+    function hitung(){
+        var jumlah = parseInt(document.getElementById('jumlah').value);
+        var bonus = parseInt(document.getElementById('bonus').value);
+        var potongan = parseInt(document.getElementById('potongan').value);
+        var hitung = jumlah+bonus-potongan;
+        
+        document.getElementById('subtotal').value = hitung;
+    }
+</script>
 @endsection
         
         
