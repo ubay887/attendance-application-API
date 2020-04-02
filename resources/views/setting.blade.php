@@ -28,7 +28,10 @@
 
   <div class="col-3 mt-5">
     <div class="card p-4 mt-3">
-      <a href="" class="text-dark nav-link"><span><img src="img/011-logout.png" class="img-fluid small-icon"/><span class="ml-3">Logout</span></span></a>
+      <a href="{{ route('logout') }}" class="text-dark nav-link" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span><img src="img/011-logout.png" class="img-fluid small-icon"/><span class="ml-3">Logout</span></span></a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
     </div><br>
 <!--     <div class="card p-4 mt-3">
       <a href="/akun" class="text-dark nav-link"><span><img src="img/network.png" class="img-fluid small-icon"/><span class="ml-3">Edit Profil</span></span></a>

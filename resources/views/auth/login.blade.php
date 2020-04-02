@@ -59,6 +59,8 @@
                                 </button>
                             </div>
                         </div>
+                        
+                        <a href="{{ route('register') }}" style="margin-left: 180px;padding-top: 30px;">Belum ada akun? register disini!</a>
                     </form>
                 </div>
             </div>
