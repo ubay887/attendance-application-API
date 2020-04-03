@@ -34,7 +34,6 @@
 
     //SEARCH
     Route::get('/pegawaicari','pegawaiController@cari');
-
     
 
 //end crud pegawai
@@ -52,10 +51,18 @@ Route::delete('/pengajuan/delete/{id}','CutiController@destroy');
 
 // end cuti
 
+// absen
 
-Route::get('/dataAbsensi', function () {
-    return view('dataAbsensi');
-});
+// Route::get('/dataAbsensi', function () {
+//     return view('dataAbsensi');
+// });
+
+Route::get('/dataAbsensi','absenController@show');
+
+
+Route::get('/absencari','AbsenController@cari');
+
+// tutup absen
 
 Route::get('/penugasan','PenugasanController@show');
 

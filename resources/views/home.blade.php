@@ -8,7 +8,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded ">
       <div class="row">
         <div class="col-6">
-          <h3>0</h3>
+          <h3>{{ $pengajuan }}</h3>
           <div class="text-muted">Ijin/Cuti</div>
         </div>
         <div class="col-6">
@@ -24,7 +24,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded ">
       <div class="row">
         <div class="col-6">
-          <h3>0</h3>
+          <h3>{{ $absen }}</h3>
           <div class="text-muted">Absen</div>
         </div>
         <div class="col-6">
@@ -55,7 +55,7 @@
 @endsection
 
 @section('pengaturanAbsen')
-  <div class="col-12">
+  <!-- <div class="col-12">
     <span class="text-muted mr-4">
       <img src="img/all.png" alt="" class="img-fluid small-icon mr-3">All
     </span>
@@ -66,88 +66,49 @@
       <img src="img/absen-keluar.png" alt="" class="img-fluid small-icon mr-3">Absen Keluar
     </span>                
     <div class="border mt-4"></div>
-  </div>
+  </div> -->
 @endsection
 
 @section('contentAbsen')
 
 
-<div class="col-12 shadow-lg p-4 mt-5 ml-3 rounded">
+<div class="col-12 shadow-lg p-4 mt-2 ml-3 rounded">
 
   <div class="row">
 
     <div class="col-12">
-      <b>Absen Masuk</b>
+      <b>Absen</b>
     </div>
 
   </div>
 
   <!-- absen masuk & keluar -->
+  @foreach($absens as $a)
   <div class="row mt-4 mb-3">
 
     <div class="col-2">
-      <img src="img/user.png" alt="" class="rounded-circle img-fluid medium-icon" onclick="userProfile()">
+      <img src="img/{{$a->photo}}" alt="" class="rounded-circle img-fluid medium-icon" onclick="userProfile()">
     </div>
 
     <div class="col-5 text-left">
       <div>
-        <b>Ophelia Cintiago</b>
+        <b>{{$a->nama}}</b>
       </div>
       <div class="text-muted">
-        Absen masuk
+        Absen {{$a->type}}
       </div>
+
     </div>
 
     <div class="col-5 text-right">
-      <div class="text-muted">21 NOVEMBER 2019 08:20:10</div> 
-      <div class="text-muted">5 jam yang lalu</div>
-    </div>
-
-  </div>
-
-  <div class="row mt-4 mb-3">
-
-    <div class="col-2">
-      <img src="img/user.png" alt="" class="rounded-circle img-fluid medium-icon" onclick="userProfile()">
-    </div>
-
-    <div class="col-5 text-left">
-      <div>
-        <b>Ophelia Cintiago</b>
-      </div>
+      <div class="text-muted">{{$a->timestamp}}</div>
       <div class="text-muted">
-        Absen masuk
+        {{$a->status}}
       </div>
-    </div>
-
-    <div class="col-5 text-right">
-      <div class="text-muted">21 NOVEMBER 2019 08:20:10</div> 
-      <div class="text-muted">5 jam yang lalu</div>
     </div>
 
   </div>
-
-  <div class="row mt-4">
-
-    <div class="col-2">
-      <img src="img/user.png" alt="" class="rounded-circle img-fluid medium-icon" onclick="userProfile()">
-    </div>
-
-    <div class="col-5 text-left">
-      <div>
-        <b>Ophelia Cintiago</b>
-      </div>
-      <div class="text-muted">
-        Absen masuk
-      </div>
-    </div>
-
-    <div class="col-5 text-right">
-      <div class="text-muted">21 NOVEMBER 2019 08:20:10</div> 
-      <div class="text-muted">5 jam yang lalu</div>
-    </div>
-
-  </div>
+  @endforeach
   <!-- tutup absen masuk & keluar -->
 
 </div>
@@ -183,7 +144,7 @@
             <span>
               <img src="img/email.png" alt="" class="small-icon img-fluid">
             </span> 
-            <span class="small-font-size">Email :{{ $item->email_perusahaan }}/span>
+            <span class="small-font-size">Email :{{ $item->email_perusahaan }}</span>
           </div>
           <div class="col-12  mt-3">
             <span>

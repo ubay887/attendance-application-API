@@ -38,7 +38,7 @@
             <div class="col-12">
               <table class="table mt-4">
                 <thead class="thead-light">
-                  <th>foto</th>
+                  <th>Foto</th>
                   <th scope="col">Nama</th>
                   <th scope="col">Email</th>
                   <th scope="col">Divisi</th>
@@ -51,17 +51,18 @@
                     <div class="alert alert-success">
                       {{ session('status') }}
                     </div>
+
                   @endif
                   @foreach ($pegawai as $p)                  
-                    <tr onclick="userProfile('{{$p->nama}}','{{$p->email}}','{{$p->profile->divisi}}','{{$p->profile->jabatan}}','{{$p->profile->tgl_mulai_kerja}}','{{$p->profile->tgl_lahir}}','{{$p->profile->tempat_lahir}}','{{$p->profile->gol_darah}}','{{$p->profile->status}}','{{$p->profile->agama}}','{{$p->profile->tinggi_badan}}','{{$p->profile->berat_badan}}','{{$p->profile->nik_pegawai}}','{{$p->profile->jatah_cuti}}','{{$p->profile->jam_kerja}}','{{$p->profile->alamat}}',)" style="cursor:pointer">
+                    <tr onclick="userProfile('{{$p->nama}}','{{$p->email}}','{{$p->divisi}}','{{$p->jabatan}}','{{$p->tgl_mulai_kerja}}','{{$p->tgl_lahir}}','{{$p->tempat_lahir}}','{{$p->gol_darah}}','{{$p->status}}','{{$p->agama}}','{{$p->tinggi_badan}}','{{$p->berat_badan}}','{{$p->nik_pegawai}}','{{$p->jatah_cuti}}','{{$p->jam_kerja}}','{{$p->alamat}}',)" style="cursor:pointer">
                       <td scope="row">
                         <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer"  />
                       </td>
                       <td>{{ $p->nama }}</td> 
                       <td>{{ $p->email }}</td>
-                      <td>{{ $p->profile->divisi }}</td>                    
-                      <td>{{ $p->profile->jabatan }}</td>                    
-                      <td>{{ $p->profile->tgl_mulai_kerja }}</td>
+                      <td>{{ $p->divisi }}</td>                    
+                      <td>{{ $p->jabatan }}</td>                    
+                      <td>{{ $p->tgl_mulai_kerja }}</td>
                       <td>
                         <button class="btn btn-primary pl-4 pr-4">Edit</button>                        
                       </td>
@@ -73,14 +74,13 @@
                         </form>
                       </td>
                     </tr>
-                  @endforeach                  
+                  @endforeach        
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-    
 @endsection
 
 @section('script')

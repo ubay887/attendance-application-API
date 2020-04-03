@@ -18,5 +18,12 @@ class Profile extends Model
         return $this ->belongsTo(Pegawai::class,'id_user');
     }
 
+    // public function absen(){
+    //     return $this ->belongsTo(Pegawai::class,'id_user');
+    // }
+
+    public function absen(){
+        return $this->hasMany(Absen::class , 'id_user');
+    }
 }
 

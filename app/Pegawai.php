@@ -32,4 +32,8 @@ class Pegawai extends Model
     public function  gaji(){
         return $this->hasMany(Gaji::class , 'id_user');
     }
+
+    public function  absen(){
+        return $this->hasMany(Absen::class , 'id_user');
+    }
 }
