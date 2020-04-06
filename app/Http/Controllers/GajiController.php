@@ -29,6 +29,38 @@ class GajiController extends Controller
     {
         
     }
+    // api munculin data semua
+    public function apiall()
+    {
+        $pegawai = Pegawai::all();
+    }
+
+    // api tambahin data
+
+    public function apitambah(Request $request)
+    {
+        $gaji = new Gaji;
+
+        $gaji->bulan = $request->bulan;
+        $gaji->jumlah = $request->jumlah;
+        $gaji->bonus = $request->bonus;
+        $gaji->potongan = $request->potongan;
+        $gaji->subtotal = $request->subtotal;
+        $gaji->id_user = $request->id_user;
+
+        $gaji->save();
+
+        return "Data ditambah";
+    }
+    
+    // api delete
+
+    public function apihapus($id)
+    {
+        $gaji = Gaji::findOrFail($id)->delete();
+        return "Data berhasil di hapus";
+    }
+
 
     /**
      * Store a newly created resource in storage.
