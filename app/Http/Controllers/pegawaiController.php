@@ -113,6 +113,18 @@ class pegawaiController extends Controller
         
     }
 
+    public function apiRegister(Request $request, Pegawai $newPegawai)
+    {
+        //        
+        
+        $pegawai = new Pegawai;
+        $pegawai->email=$request->email;                
+        $pegawai->password= bcrypt($request->password);
+        $pegawai->nama = $request->nama;
+        $pegawai->save();
+        return $pegawai;
+    }
+
     /**
      * Display the specified resource.
      *

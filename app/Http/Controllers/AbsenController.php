@@ -17,6 +17,7 @@ class AbsenController extends Controller
     public function index()
     {
         //
+        return Absen::all();
     }
 
     /**
@@ -51,9 +52,9 @@ class AbsenController extends Controller
         //join 1 table 
 
         $Absen = DB::table('tbuser')
-                    ->join('tbabsen','tbabsen.id_user','=','tbuser.id_user')
-                    ->select('tbuser.nama','tbabsen.photo','tbabsen.timestamp','tbabsen.status','tbabsen.type','tbabsen.point')
-                    ->get();
+                ->join('tbabsen','tbabsen.id_user','=','tbuser.id_user')
+                ->select('tbuser.nama','tbabsen.photo','tbabsen.timestamp','tbabsen.status','tbabsen.type','tbabsen.point')
+                ->get();
         // return $absen;
         return view('/dataAbsensi',compact('Absen'));    
     }
@@ -62,10 +63,10 @@ class AbsenController extends Controller
     {
         $cari = $request->cari;
         $Absen =DB::table('tbuser')
-                    ->join('tbabsen','tbabsen.id_user','=','tbuser.id_user')
-                    ->select('tbuser.nama','tbabsen.photo','tbabsen.timestamp','tbabsen.status','tbabsen.type','tbabsen.point')
-                    ->where('nama','like',"%".$cari."%")
-                    ->get();
+            ->join('tbabsen','tbabsen.id_user','=','tbuser.id_user')
+            ->select('tbuser.nama','tbabsen.photo','tbabsen.timestamp','tbabsen.status','tbabsen.type','tbabsen.point')
+            ->where('nama','like',"%".$cari."%")
+            ->get();
 
         // $Absen = Absen::where('nama','like',"%".$cari."%")->get();
         // $profile = Pegawai::where('nama','like',"%".$cari."%")->get();

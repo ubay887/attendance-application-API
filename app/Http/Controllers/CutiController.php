@@ -49,8 +49,15 @@ class CutiController extends Controller
     {
         //join 1 table 
         $cuti = Cuti::with('pegawai')->get();
-        // return $pengajuan;
+        // return $cuti;
         return view('/pengajuan',compact('cuti'));    
+    }
+
+    public function showApi(Cuti $cuti)
+    {
+        //join 1 table 
+        $cuti = Cuti::with('pegawai')->get();
+        return $cuti;        
     }
 
     /**
