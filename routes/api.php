@@ -19,6 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register','pegawaiController@apiRegister');
 
-Route::get('/gaji','GajiController@apiall');
+Route::get('/gaji/{id}','GajiController@apiall');
 Route::post('/gaji','GajiController@apitambah');
 Route::delete('/gaji/{id}','GajiController@apihapus');
+
+Route::post("/ijin/{user_id}","IjinController@ijin");
+Route::get('/ijin/{user_id}','IjinController@apiall');
+
+Route::post("/cuti/{user_id}","CutiController@cuti");
+Route::get("/cuti/{user_id}","CutiController@apiall");

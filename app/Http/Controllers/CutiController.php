@@ -94,4 +94,27 @@ class CutiController extends Controller
         $cuti = Cuti::findOrFail($id)->delete();
         return redirect('/pengajuan');
     }
+
+    public function cuti(Request $request)
+    {
+        $cuti = new Cuti;
+
+        $cuti->nama_cuti = $request->nama_cuti;
+        $cuti->lama_cuti = $request->lama_cuti;
+        $cuti->mulai_cuti = $request->mulai_cuti;
+        $cuti->alasan = $request->alasan;
+        $cuti->id_user = $request->id_user;
+        $cuti->tgl_ajukan = $request->tgl_ajukan;
+
+        $cuti->save();
+
+        return "data sudah berhasil ditambahkan";
+    }
+
+    public function apiall($id)
+    {
+        $cuti = Cuti::with('user')->where('id_user',$id)->get();
+        return $cuti;
+    }
+
 }

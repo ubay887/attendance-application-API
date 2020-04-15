@@ -15,4 +15,8 @@ class Ijin extends Model
     {
         return $this->belongsTo(Pegawai::class , 'id_user');
     }
+
+    public function user(){
+        return $this->belongsTo(Profile::class , 'id_user');
+    }
 }

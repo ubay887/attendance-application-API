@@ -87,4 +87,25 @@ class IjinController extends Controller
         $ijin = Ijin::findOrFail($id)->delete();
         return redirect('/ijin');
     }
+
+    public function ijin(Request $request){
+        $ijin = new Ijin;
+
+        $ijin->alasan_ijin = $request->alasan_ijin;
+        $ijin->lama_hari = $request->lama_hari;
+        $ijin->tgl_mulai = $request->tgl_mulai;
+        $ijin->desc = $request->desc;
+        $ijin->id_user = $request->id_user;
+
+        $ijin->save();
+
+        return "data berhasil ditambahkan";
+    }
+
+    public function apiall($id)
+    {
+        $ijin = Ijin::with('user')->where('id_user',$id)->get();
+        return $ijin;
+    }
+
 }

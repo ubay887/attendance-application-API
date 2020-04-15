@@ -30,9 +30,10 @@ class GajiController extends Controller
         
     }
     // api munculin data semua
-    public function apiall()
+    public function apiall($id)
     {
-        $pegawai = Pegawai::all();
+        $gaji = Gaji::with('user')->where('id_user',$id)->get();
+        return $gaji;
     }
 
     // api tambahin data
