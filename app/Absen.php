@@ -10,6 +10,8 @@ class Absen extends Model
     protected $primaryKey = "id";
     protected $fillable = ['photo','timestamp','status','type','point'];
 
+    Public $timestamps = false;
+
     public function user()
     {
         return $this->belongsTo(User::class , 'id_user');

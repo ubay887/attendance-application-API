@@ -33,7 +33,7 @@ class AbsenController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $req Zuest
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -105,5 +105,27 @@ class AbsenController extends Controller
     public function destroy(Absen $absen)
     {
         //
+    }
+
+    public function absen(Request $request)
+    {
+        //
+
+        $path = public_path()."/foto_absensi";
+
+        $file = $request->file('photo');
+        $file->move($path,$file->getClientOriginalName());
+
+        $absen = new Absen();
+        $absen->photo = $file->getClientOriginalName();        
+        $absen->timestamp = $request->timestamp;        
+        $absen->id_user = $request->id_user;        
+        $absen->type = $request->type;        
+        $absen->point = $request->point;        
+        $absen->status = $request->status;        
+
+        $absen->save();
+        return "berhasil";
+
     }
 }

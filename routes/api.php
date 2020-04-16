@@ -28,3 +28,5 @@ Route::get('/ijin/{user_id}','IjinController@apiall');
 
 Route::post("/cuti/{user_id}","CutiController@cuti");
 Route::get("/cuti/{user_id}","CutiController@apiall");
+
+Route::post("/absen/{user_id}","AbsenController@absen");
