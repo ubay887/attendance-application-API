@@ -28,6 +28,9 @@
     //delete
     Route::delete('/pegawai/delete/{id_user}','pegawaiController@destroy');
 
+    //update
+    Route::get('/pegawaiedit{id_user}','pegawaiController@edit');
+
     Route::get('/manajemenPegawai',function(){
         return view('manajemenPegawai');
     });

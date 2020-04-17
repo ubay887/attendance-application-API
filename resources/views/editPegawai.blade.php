@@ -27,8 +27,9 @@
                         </div>
                         @endif
                         <!-- search -->
-                        <form action="/pegawai/update" class="" method="GET">
-                            {{ csrf_field() }}
+                        <form action="/pegawai/update" class="" method="POST">
+                            @csrf
+                            @method('put')
                             
                             <input type="hidden" name="id" value="{{ $pegawai->id }}">
 

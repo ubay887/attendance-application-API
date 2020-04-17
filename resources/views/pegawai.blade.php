@@ -54,9 +54,9 @@
 
                   @endif
                   @foreach ($pegawai as $p)                  
-                    <tr onclick="userProfile('{{$p->nama}}','{{$p->email}}','{{$p->divisi}}','{{$p->jabatan}}','{{$p->tgl_mulai_kerja}}','{{$p->tgl_lahir}}','{{$p->tempat_lahir}}','{{$p->gol_darah}}','{{$p->status}}','{{$p->agama}}','{{$p->tinggi_badan}}','{{$p->berat_badan}}','{{$p->nik_pegawai}}','{{$p->jatah_cuti}}','{{$p->jam_kerja}}','{{$p->alamat}}',)" style="cursor:pointer">
+                    <tr>
                       <td scope="row">
-                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer"  />
+                        <img src="img/user.png" class="img-circle center-icon" style="cursor:pointer" onclick="userProfile('{{$p->nama}}','{{$p->email}}','{{$p->divisi}}','{{$p->jabatan}}','{{$p->tgl_mulai_kerja}}','{{$p->tgl_lahir}}','{{$p->tempat_lahir}}','{{$p->gol_darah}}','{{$p->status}}','{{$p->agama}}','{{$p->tinggi_badan}}','{{$p->berat_badan}}','{{$p->nik_pegawai}}','{{$p->jatah_cuti}}','{{$p->jam_kerja}}','{{$p->alamat}}',)" style="cursor:pointer" />
                       </td>
                       <td>{{ $p->nama }}</td> 
                       <td>{{ $p->email }}</td>
@@ -64,7 +64,10 @@
                       <td>{{ $p->jabatan }}</td>                    
                       <td>{{ $p->tgl_mulai_kerja }}</td>
                       <td>
-                        <button class="btn btn-primary pl-4 pr-4">Edit</button>                        
+                        <form action="/pegawaiedit{{ $p->id_user}}" method="GET">
+                          @csrf
+                          <button class="btn btn-primary pl-4 pr-4">Edit</button>   
+                        </form>                     
                       </td>
                       <td>
                         <form action="/pegawai/delete/{{ $p->id_user }}" method="POST">

@@ -142,9 +142,11 @@ class pegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_user)
     {
-        //
+        $pegawai = Pegawai::find($id_user);
+        $profile = Profile::find($id_user);
+        return view('editPegawai',compact('pegawai','profile'));
     }
 
     /**
@@ -154,9 +156,59 @@ class pegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_user ,Pegawai $pegawai ,Profile $profile)
     {
-        //
+         $validasi = $request->validate([
+            "email" => "required",
+            "nik_pegawai" => "required",
+            "jam_kerja" => "required",
+            "tgl_mulai_kerja" => "required",
+            "nama" => "required",
+            "devisi" => "required",
+            "jatah_cuti" => "required",
+            "status_karyawan" => "required",
+            "no_hp" => "required",
+            "jabatan" => "required",
+            "no_ktp" => "required",
+            "gender" => "required",
+            "tgl_lahir" => "required",
+            "tempat_lahir" => "required",
+            "gol_darah" => "required",
+            "agama" => "required",
+            "tinggi_badan" => "required",
+            "berat_badan" => "required",
+            "alamat"=>"required",
+        ]);
+        
+        $password = "siabsen@".$request->nik_pegawai;
+        
+        $pegawai = Pegawai::find($id);
+        $pegawai->email=$request->email;                
+        $pegawai->password= bcrypt($password);
+        $pegawai->nama = $request->nama;
+        $pegawai->save();
+
+        $profile = Profile::find($id);
+        $profile->id_user = $pegawai->id_user;
+        $profile->nik_pegawai = $request->nik_pegawai;
+        $profile->jam_kerja = $request->jam_kerja;
+        $profile->tgl_mulai_kerja = $request->tgl_mulai_kerja;
+        $profile->divisi = $request->devisi;
+        $profile->jatah_cuti = $request->jatah_cuti;
+        $profile->status = $request->status_karyawan;
+        $profile->jabatan = $request->jabatan;
+        $profile->no_ktp = $request->no_ktp;
+        $profile->gender = $request->gender;
+        $profile->tgl_lahir = $request->tgl_lahir;
+        $profile->tempat_lahir = $request->tempat_lahir;
+        $profile->gol_darah = $request->gol_darah;
+        $profile->agama = $request->agama;
+        $profile->tinggi_badan = $request->tinggi_badan;
+        $profile->berat_badan = $request->berat_badan;
+        $profile->alamat = $request->alamat;
+        $profile->save();
+
+        return redirect('/pegawai')->with('status','Data pegawai berhasil diupdate');
     }
 
     /**
