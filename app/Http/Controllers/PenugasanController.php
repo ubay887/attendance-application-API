@@ -106,8 +106,14 @@ class PenugasanController extends Controller
     public function destroy($id)
     {
         //
-
         $penugasan = Penugasan::findOrFail($id)->delete();
         return redirect('/penugasan');
     }
+
+    public function apiall($id)
+    {
+        $penugasan = Penugasan::with('user')->where('id_user',$id)->get();
+        return $penugasan;
+    }
+
 }

@@ -30,3 +30,5 @@ Route::post("/cuti/{user_id}","CutiController@cuti");
 Route::get("/cuti/{user_id}","CutiController@apiall");
 
 Route::post("/absen/{user_id}","AbsenController@absen");
+
+Route::get("/tugas/{user_id}","PenugasanController@apiall");
