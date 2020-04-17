@@ -23,12 +23,12 @@
                             @method('post')
                             <div class="row">
                                 <div class="col">
+                                    <label>Tanggal Diberikan Tugas</label>
+                                    <input type="date" class="form-control" id="theDate" name="tgl_diberikan tugas">
+                                </div> 
+                                <div class="col">
                                     <label>Judul Tugas</label>
                                     <input type="text" class="form-control" name="judul">
-                                </div>
-                                <div class="col">
-                                    <label>Tanggal Deadline</label>
-                                    <input type="date" class="form-control" name="deadline">
                                 </div>
                                 <div class="col">
                                     <label>Pengecek</label>
@@ -53,9 +53,9 @@
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label>Tanggal Diberikan Tugas</label>
-                                    <input type="date" class="form-control" name="tgl_diberikan tugas">
-                                </div>                                    
+                                    <label>Tanggal Deadline</label>
+                                    <input type="date" class="form-control" name="deadline">
+                                </div>                                  
                             </div>                                                        
                             <div class="row mt-2">                                
                                 <div class="col">
@@ -70,4 +70,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var today = new Date();
+    document.getElementById("theDate").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+</script>
+
 @endsection
