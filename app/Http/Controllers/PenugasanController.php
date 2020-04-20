@@ -113,7 +113,14 @@ class PenugasanController extends Controller
     public function apiall($id)
     {
         $penugasan = Penugasan::with('user')->where('id_user',$id)->get();
-        return $penugasan;
+        return $penugasan;        
     }
+
+    public function hapuspenugasan($id_tugas)
+    {    
+        $penugasan = Penugasan::findOrFail($id_tugas)->delete();
+        return 'tugas anda sudah diselesaikan';
+    }
+    
 
 }
