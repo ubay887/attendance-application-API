@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Absen;
 use App\User;
+use App\Str;
 use DB;
 use Illuminate\Http\Request;
 
@@ -110,7 +111,6 @@ class AbsenController extends Controller
     public function absen(Request $request)
     {
         //
-
         $path = public_path()."/foto_absensi";
 
         $file = $request->file('photo');
@@ -122,7 +122,8 @@ class AbsenController extends Controller
         $absen->id_user = $request->id_user;        
         $absen->type = $request->type;        
         $absen->point = $request->point;        
-        $absen->status = $request->status;        
+        $absen->status = $request->status;      
+        $absen->deskripsi = $request->deskripsi;  
 
         $absen->save();
         return "berhasil";

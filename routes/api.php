@@ -33,3 +33,6 @@ Route::post("/absen/{user_id}","AbsenController@absen");
 
 Route::get("/tugas/{user_id}","PenugasanController@apiall");
 Route::delete("/tugas/selesai/{id_tugas}","PenugasanController@hapuspenugasan");
+
+Route::get("/tanggapan/{user_id}","TanggapanController@store");
+Route::post("/tanggapan","TanggapanController@store");

@@ -40,7 +40,7 @@ class HomeController extends Controller
         $absens = Absen::with('user')->get();
         $absens = DB::table('tbuser')
                     ->join('tbabsen','tbabsen.id_user','=','tbuser.id_user')
-                    ->select('tbuser.nama','tbabsen.photo','tbabsen.timestamp','tbabsen.status','tbabsen.type','tbabsen.point')
+                    ->select('tbuser.nama','tbabsen.photo','tbabsen.timestamp','tbabsen.status','tbabsen.type','tbabsen.point','tbabsen.deskripsi','tbabsen.id_user')
                     ->get();
         //return $perusahaan;             
         return view('home',[

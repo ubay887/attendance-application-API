@@ -63,8 +63,8 @@
                     @csrf
                 </form>
             </div>
-         </li>
-       </ul>
+        </li>
+      </ul>
     @endguest
 
   </nav>

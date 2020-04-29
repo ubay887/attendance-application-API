@@ -5,7 +5,7 @@
 
   <div class="col-4">
 
-    <div class="shadow-lg p-3 mb-5 bg-white rounded ">
+    <div class="shadow-lg p-3 mb-5  bg-white rounded ">
       <div class="row">
         <div class="col-6">
           <h3>{{ $pengajuan }}</h3>
@@ -72,46 +72,81 @@
 @section('contentAbsen')
 
 
-<div class="col-12 shadow-lg p-4 mt-2 ml-3 rounded">
+<div class="col-lg-12 shadow-lg px-3 mt-2 mb-4 rounded">
 
   <div class="row">
 
-    <div class="col-12">
+    <div class="col-12 my-3 ">
       <b>Absen</b>
     </div>
 
   </div>
 
   <!-- absen masuk & keluar -->
-  @foreach($absens as $a)
-  <div class="row mt-4 mb-3">
-
-    <div class="col-2">
-      <img src="img/{{$a->photo}}" alt="" class="rounded-circle img-fluid medium-icon" onclick="userProfile()">
-    </div>
-
-    <div class="col-5 text-left">
-      <div>
+  
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Foto</th>
+        <th>Nama</th>
+        <th>Status</th>
+        <th>Tgl & Waktu</th>
+        <th>Keterangan</th>
+        <th>Deskripsi</th>        
+        <th>Tanggapi</th>        
+      </tr>
+    </thead>
+    <tbody>
+    @foreach ($absens as $a)
+    <tr style="cursor:pointer">
+      <td style="display:none">
+        <input type="text" value="{{ $a->id_user }}" id="id_user">
+        <input type="text" value="{{ $a->timestamp }}" id="tgl_absensi">
+      </td>
+      <td>          
+        <img src="./foto_absensi/{{$a->photo}}" alt="" class="img-fluid" style="height:100px; width:110px" onclick="showabsenprofile('{{$a->photo}}','{{$a->nama}}','{{$a->type}}','{{$a->timestamp}}','{{$a->status}}','{{$a->deskripsi}}','{{$a->id_user}}')">
+      </td>
+      <td>
         <b>{{$a->nama}}</b>
-      </div>
-      <div class="text-muted">
-        Absen {{$a->type}}
-      </div>
-
-    </div>
-
-    <div class="col-5 text-right">
-      <div class="text-muted">{{$a->timestamp}}</div>
-      <div class="text-muted">
+      </td>
+      <td>
+        {{$a->type}}
+      </td>
+      <td>
+        {{$a->timestamp}}
+      </td>
+      <td>
         {{$a->status}}
-      </div>
-    </div>
-
-  </div>
-  @endforeach
-  <!-- tutup absen masuk & keluar -->
+      </td>
+      <td>
+        {{$a->deskripsi}}
+      </td>          
+      <td>
+        <button class="btn btn-success" onclick="tanggapi('TANGGAPI')">TANGGAPI</button>
+      </td>
+    </tr>          
+    @endforeach
+    </tbody>
+  </table>  
 
 </div>
+
+<div class="col-lg-12 shadow-lg p-4 mt-2 rounded mb-5" id="formtanggapan"  style="display:none">
+  <div class="row">
+    <div class="col-12 my-3 ">
+      <b>Beri Tanggapan</b>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="my-3">Akan menanggapi absensi pada tgl : <b id="show_tgl_absensi"></b></div>
+      <input type="text" class="form-control" placeholder="Beri Tanggapan" id="tanggapan">
+      <button class="btn btn-success my-3 col-lg-12" onclick="kirimtanggapan()">KIRIM</button>
+      <button class="btn btn-danger col-lg-12" onclick="tanggapi('BATALKAN')">BATALKAN</button>
+    </div>
+  </div>
+</div>
+
 <!-- tutup content absen -->
 @endsection
 
@@ -135,38 +170,76 @@
           </div>
           @foreach ($perusahaan as $item)
             <div class="col-12 mt-3">
-            <span>
-              <img src="img/telpon.png" alt="" class="small-icon img-fluid">
-            </span>
-            <span class="small-font-size">Telepon : {{ $item->telpon_perusahaan }}</span>
-          </div>
-          <div class="col-12  mt-3">
-            <span>
-              <img src="img/email.png" alt="" class="small-icon img-fluid">
-            </span> 
-            <span class="small-font-size">Email :{{ $item->email_perusahaan }}</span>
-          </div>
-          <div class="col-12  mt-3">
-            <span>
-              <img src="img/placeholder.png" alt="" class="small-icon img-fluid">
-            </span>
-            <span class="small-font-size">Alamat :{{ $item->alamat_perusahaan }}</span>
-          </div>
-          <div class="col-12  mt-3">
-            <span>
-              <img src="img/all.png" alt="" class="small-icon img-fluid">
-            </span>
-            <span class="small-font-size">Industri : {{ $item->industri }}</span>
-          </div>          
+              <span>
+                <img src="img/telpon.png" alt="" class="small-icon img-fluid">
+              </span>
+              <span class="small-font-size">Telepon : {{ $item->telpon_perusahaan }}</span>
+            </div>
+            <div class="col-12  mt-3">
+              <span>
+                <img src="img/email.png" alt="" class="small-icon img-fluid">
+              </span> 
+              <span class="small-font-size">Email :{{ $item->email_perusahaan }}</span>
+            </div>
+            <div class="col-12  mt-3">
+              <span>
+                <img src="img/placeholder.png" alt="" class="small-icon img-fluid">
+              </span>
+              <span class="small-font-size">Alamat :{{ $item->alamat_perusahaan }}</span>
+            </div>
+            <div class="col-12  mt-3">
+              <span>
+                <img src="img/all.png" alt="" class="small-icon img-fluid">
+              </span>
+              <span class="small-font-size">Industri : {{ $item->industri }}</span>
+            </div>          
           @endforeach
         </div>
       </div>
     </div>
   </div>  
- 
 
 @endsection
 
+@section('script')
+  <script>
+    function showabsenprofile(foto,nama,type,timestamp,status,deskripsi,id_user){      
+      Swal.fire({
+        html : `
+          <img src="./foto_absensi/${foto}" class="img-fluid">          
+        `,        
+      });
+    }
 
+    function tanggapi(type){
 
+      var tgl_absensi = document.getElementById("tgl_absensi").value;
+      document.getElementById("show_tgl_absensi").innerHTML = tgl_absensi;
+      if(type == "TANGGAPI"){
+        document.getElementById("formtanggapan").style.display = "block";
+      }else{
+        document.getElementById("formtanggapan").style.display = "none";
+      }
+    }
 
+    function datatanggapan(){
+      var tgl_absensi = document.getElementById("tgl_absensi").value;
+      var tanggapan = document.getElementById("tanggapan").value;
+      var id_user = document.getElementById("id_user").value;
+      var form = new FormData();
+      form.set("tanggapan",tanggapan);
+      form.set("id_user",id_user);
+      form.set("tgl_absensi",tgl_absensi);
+      return form;
+    }
+
+    function kirimtanggapan(){
+      fetch("http://localhost:8000/api/tanggapan",{
+        method : "post",
+        body : datatanggapan(),
+      })
+      tanggapi('BATALKAN');
+    }
+
+  </script>
+@endsection
