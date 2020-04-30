@@ -47,7 +47,7 @@
                             <tr>
                                 <td scope="row">{{$a->timestamp}}</td>
                                 <td>{{$a->nama}}</td>
-                                <td><img src="img/{{$a->photo}}" class="img-circle user-size"/></td>
+                                <td><img src="./foto_absensi/{{$a->photo}}" class="img-circle user-size" onclick="showabsenprofile('{{$a->photo}}')"/></td>
                                 <td>{{$a->status}}</td>
                                 <td>{{$a->type}}</td>
                             </tr>
@@ -59,5 +59,14 @@
         </div>
     </div>
 @endsection
+ <script>
+    function showabsenprofile(foto,nama,type,timestamp,status,deskripsi,id_user){      
+      Swal.fire({
+        html : `
+          <img src="./foto_absensi/${foto}" class="img-fluid">          
+        `,        
+      });
+    }
+  </script>
 
     

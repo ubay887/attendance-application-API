@@ -16,11 +16,11 @@ class pegawaiController extends Controller
      */
     public function index()
     {
-        // $pegawai = Pegawai::with('profile')->get();
-        $pegawai = DB::table('tbuser')
-                    ->join('tbprofile','tbprofile.id_user','=','tbuser.id_user')
-                    ->select('tbuser.nama','tbuser.email','tbprofile.divisi','tbprofile.jabatan','tbprofile.tgl_mulai_kerja','tbuser.id_user','tbprofile.id_user','tbprofile.tgl_lahir','tbprofile.tempat_lahir','tbprofile.gol_darah','tbprofile.status','tbprofile.agama','tbprofile.tinggi_badan','tbprofile.berat_badan','tbprofile.nik_pegawai','tbprofile.jatah_cuti','tbprofile.jam_kerja','tbprofile.alamat')
-                    ->get();
+        $pegawai = Pegawai::with('profile')->get();
+        // $pegawai = DB::table('tbuser')
+        //             ->join('tbprofile','tbprofile.id_user','=','tbuser.id_user')
+        //             ->select('tbuser.nama','tbuser.email','tbprofile.divisi','tbprofile.jabatan','tbprofile.tgl_mulai_kerja','tbuser.id_user','tbprofile.id_user','tbprofile.tgl_lahir','tbprofile.tempat_lahir','tbprofile.gol_darah','tbprofile.status','tbprofile.agama','tbprofile.tinggi_badan','tbprofile.berat_badan','tbprofile.nik_pegawai','tbprofile.jatah_cuti','tbprofile.jam_kerja','tbprofile.alamat')
+        //             ->get();
         // $pegawai = Pegawai::all();
         // $profile = Profile::all();
         return view('pegawai',compact('pegawai'));
@@ -29,13 +29,13 @@ class pegawaiController extends Controller
     public function cari(Request $request)
     {
         $cari = $request->cari;
-        $pegawai = DB::table('tbuser')
-                    ->join('tbprofile','tbprofile.id_user','=','tbuser.id_user')
-                    ->select('tbuser.nama','tbuser.email','tbprofile.divisi','tbprofile.jabatan','tbprofile.tgl_mulai_kerja','tbuser.id_user','tbprofile.id_user','tbprofile.tgl_lahir','tbprofile.tempat_lahir','tbprofile.gol_darah','tbprofile.status','tbprofile.agama','tbprofile.tinggi_badan','tbprofile.berat_badan','tbprofile.nik_pegawai','tbprofile.jatah_cuti','tbprofile.jam_kerja','tbprofile.alamat')
-                    ->where('nama','like',"%".$cari."%")
-                    ->get();
-        // $pegawai = Pegawai::where('nama','like',"%".$cari."%")->get();
-        // $profile = Pegawai::where('nama','like',"%".$cari."%")->get();
+        // $pegawai = DB::table('tbuser')
+        //             ->join('tbprofile','tbprofile.id_user','=','tbuser.id_user')
+        //             ->select('tbuser.nama','tbuser.email','tbprofile.divisi','tbprofile.jabatan','tbprofile.tgl_mulai_kerja','tbuser.id_user','tbprofile.id_user','tbprofile.tgl_lahir','tbprofile.tempat_lahir','tbprofile.gol_darah','tbprofile.status','tbprofile.agama','tbprofile.tinggi_badan','tbprofile.berat_badan','tbprofile.nik_pegawai','tbprofile.jatah_cuti','tbprofile.jam_kerja','tbprofile.alamat')
+        //             ->where('nama','like',"%".$cari."%")
+        //             ->get();
+        $pegawai = Pegawai::where('nama','like',"%".$cari."%")->get();
+        $profile = Pegawai::where('nama','like',"%".$cari."%")->get();
         return view('pegawai',compact('pegawai','profile'));
 
     }

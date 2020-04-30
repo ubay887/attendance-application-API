@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Profile;
+use App\User;
 use App\Home;
 use App\Ijin;
 use App\Cuti;
@@ -31,7 +31,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Profile::count();
+        $user = User::count();
         $cuti = Cuti::count();
         $Ijin = Ijin::count();
         $absen = Absen::count();

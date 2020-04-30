@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label>Tanggal Diberikan Tugas</label>
-                                    <input type="date" class="form-control" id="theDate" name="tgl_diberikan tugas">
+                                    <input type="date" class="form-control" id="theDate" name="tgl_diberikan tugas" format>
                                 </div> 
                                 <div class="col">
                                     <label>Judul Tugas</label>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col">
                                     <label>Tanggal Deadline</label>
-                                    <input type="date" class="form-control" name="deadline">
+                                    <input type="date" class="form-control" name="deadline" format>
                                 </div>                                  
                             </div>                                                        
                             <div class="row mt-2">                                
