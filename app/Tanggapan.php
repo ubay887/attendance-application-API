@@ -12,4 +12,6 @@ class Tanggapan extends Model
     protected $fillabele = ['tanggapan','id_user'];
     protected $primaryKey = "id";
     protected $table = "tbtanggapan";
+    
+
 }

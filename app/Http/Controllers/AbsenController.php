@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Absen;
+// use App\Tanggapan;
 use App\User;
 use App\Str;
 use DB;
@@ -128,5 +129,11 @@ class AbsenController extends Controller
         $absen->save();
         return "berhasil";
 
+    }
+
+    public function apiall($id)
+    {
+        $absen = Absen::with('user')->where('id_user',$id)->get();    
+        return $absen;
     }
 }

@@ -55,18 +55,7 @@
 @endsection
 
 @section('pengaturanAbsen')
-  <!-- <div class="col-12">
-    <span class="text-muted mr-4">
-      <img src="img/all.png" alt="" class="img-fluid small-icon mr-3">All
-    </span>
-    <span class="text-muted mr-4">
-      <img src="img/absen-masuk.png" alt="" class="img-fluid small-icon mr-3">Absen Masuk
-    </span>
-    <span class="text-muted mr-4">
-      <img src="img/absen-keluar.png" alt="" class="img-fluid small-icon mr-3">Absen Keluar
-    </span>                
-    <div class="border mt-4"></div>
-  </div> -->
+
 @endsection
 
 @section('contentAbsen')
@@ -102,6 +91,7 @@
       <td style="display:none">
         <input type="text" value="{{ $a->id_user }}" id="id_user">
         <input type="text" value="{{ $a->timestamp }}" id="tgl_absensi">
+        <input type="text" value="{{ $a->nama }}" id="nama">
       </td>
       <td>          
         <img src="./foto_absensi/{{$a->photo}}" alt="" class="img-fluid" style="height:100px; width:110px" onclick="showabsenprofile('{{$a->photo}}','{{$a->nama}}','{{$a->type}}','{{$a->timestamp}}','{{$a->status}}','{{$a->deskripsi}}','{{$a->id_user}}')">
@@ -139,7 +129,7 @@
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <div class="my-3">Akan menanggapi absensi pada tgl : <b id="show_tgl_absensi"></b></div>
+      <div class="my-3">Akan menanggapi absensi <b id="nama_user"></b> pada tgl : <b id="show_tgl_absensi"></b></div>
       <input type="text" class="form-control" placeholder="Beri Tanggapan" id="tanggapan">
       <button class="btn btn-success my-3 col-lg-12" onclick="kirimtanggapan()">KIRIM</button>
       <button class="btn btn-danger col-lg-12" onclick="tanggapi('BATALKAN')">BATALKAN</button>
@@ -214,7 +204,9 @@
     function tanggapi(type){
 
       var tgl_absensi = document.getElementById("tgl_absensi").value;
+      
       document.getElementById("show_tgl_absensi").innerHTML = tgl_absensi;
+      document.getElementById("nama_user").innerHTML = document.getElementById("nama").value;
       if(type == "TANGGAPI"){
         document.getElementById("formtanggapan").style.display = "block";
       }else{

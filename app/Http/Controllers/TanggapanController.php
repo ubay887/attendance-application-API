@@ -50,9 +50,10 @@ class TanggapanController extends Controller
      * @param  \App\Tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function show(Tanggapan $tanggapan)
+    public function show($id)
     {
         //
+        return Tanggapan::where('id_user',$id)->get();
     }
 
     /**
