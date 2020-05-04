@@ -55,7 +55,7 @@ class AbsenController extends Controller
 
         $Absen = DB::table('tbuser')
                 ->join('tbabsen','tbabsen.id_user','=','tbuser.id_user')
-                ->select('tbuser.nama','tbabsen.photo','tbabsen.timestamp','tbabsen.status','tbabsen.type','tbabsen.point')
+                ->select('tbuser.nama','tbabsen.photo','tbabsen.timestamp','tbabsen.status','tbabsen.type')
                 ->get();
         // return $absen;
         return view('/dataAbsensi',compact('Absen'));    

@@ -163,9 +163,7 @@
       </div>
       <!-- tutup container -->
         
-      <footer class="sticky-footer bg-primary">
-        
-      </footer>
+
 
     </div>
   

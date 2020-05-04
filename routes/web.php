@@ -29,7 +29,7 @@
     Route::delete('/pegawai/delete/{id_user}','pegawaiController@destroy');
 
     //update
-    Route::get('/pegawaiedit{id_user}','pegawaiController@edit');
+    Route::get('/pegawaiedit/{id_user}','pegawaiController@edit');
 
     Route::get('/manajemenPegawai',function(){
         return view('manajemenPegawai');
@@ -51,6 +51,7 @@ Route::get('/pengajuan','CutiController@show');
 
 // delete
 Route::delete('/pengajuan/delete/{id}','CutiController@destroy');
+Route::put('/pengajuan/update/{id}','CutiController@updatestatus');
 
 // end cuti
 

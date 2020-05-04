@@ -117,4 +117,21 @@ class CutiController extends Controller
         return $cuti;
     }
 
+    public function updatestatus(Request $request)
+    {
+        //
+        $cuti = new Cuti;
+        
+        $cuti->nama_cuti = $request->nama_cuti;
+        $cuti->lama_cuti = $request->lama_cuti;
+        $cuti->mulai_cuti = $request->mulai_cuti;
+        $cuti->alasan = $request->alasan;
+        $cuti->id_user = $request->id_user;
+        $cuti->tgl_ajukan = $request->tgl_ajukan;
+        $cuti->status = "Setuju";
+
+        $cuti->save();
+        return "data disetujui";
+    }
+
 }

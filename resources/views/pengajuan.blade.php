@@ -34,7 +34,7 @@
                   <th scope="col">Mulai Cuti</th>
                   <th scope="col">Lama Hari</th>
                   <th scope="col">Sisa Cuti</th>
-                  <th scope="col" onclick="keterangan()">Keterangan</th>
+                  <th scope="col">Keterangan</th>
                   <th scope="col" colspan="2">Aksi</th>
                 </thead>
                 <tbody>
@@ -45,13 +45,12 @@
                         <td>{{ $c->mulai_cuti }}</td>
                         <td>{{ $c->lama_cuti }}</td>
                         <td>2 Hari</td>
-                        <td>{{ $c->alasan }}</td>
-                        <td>
+                        <td>{{ $c->alasan }}</td>                        
+                        <td>                               
                           <form action="/pengajuan/delete/{{ $c->id }}" method="post">
                             @csrf
-                            @method('delete')
-                              <button class="btn btn-primary pl-4 pr-4">Setuju</button>
-                              <button class="btn btn-primary pl-4 pr-4">Tolak</button>
+                            @method('delete')                              
+                              <button class="btn btn-danger pl-4 pr-4">Tolak</button>
                           </form>
                         </td>
                     </tr>

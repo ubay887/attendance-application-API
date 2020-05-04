@@ -40,11 +40,8 @@
                 <thead class="thead-light">
                   <th>Foto</th>
                   <th scope="col">Nama</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Divisi</th>
-                  <th scope="col">Jabatan</th>
-                  <th scope="col">Mulai Kerja</th>
-                  <th scope="col" colspan="2" class="text-center">Aksi</th>
+                  <th scope="col">Email</th>                  
+                  <th scope="col" colspan="3" class="text-center">Aksi</th>
                 </thead>
                 <tbody>            
                   @if (session('status'))

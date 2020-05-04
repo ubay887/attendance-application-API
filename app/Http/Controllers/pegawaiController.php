@@ -158,7 +158,7 @@ class pegawaiController extends Controller
      */
     public function update(Request $request, $id_user ,Pegawai $pegawai ,Profile $profile)
     {
-         $validasi = $request->validate([
+        $validasi = $request->validate([
             "email" => "required",
             "nik_pegawai" => "required",
             "jam_kerja" => "required",
