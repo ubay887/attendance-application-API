@@ -11,6 +11,13 @@
 @endsection
 
 @section('contentPegawai')
+<style type="text/css">
+  .disables {
+          pointer-events: none;
+          cursor: default;
+          opacity: 40%;
+      }
+</style>
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -46,12 +53,22 @@
                           <td>{{$i->alasan_ijin}}</td>
                           <td>{{$i->desc}}</td>
                         <td>
-                          <form action="/ijin/delete/{{ $i->id }}" method="post">
-                            @csrf
-                            @method('delete')
-                              <button class="btn btn-primary pl-4 pr-4">Setuju</button>
-                              <button class="btn btn-primary pl-4 pr-4">Tolak</button>
-                          </form>
+                            @if($i->status=="TOLAK")
+                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn btn-primary disables pl-4 pr-4">SETUJU
+                              </a>
+                              <a href="/" class="disables btn btn-danger pl-4 pr-4">TOLAK
+                              </a>
+                            @elseif($i->status=="SETUJU")
+                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn disables btn-primary pl-4 pr-4">SETUJU
+                              </a>
+                              <a href="/" class="disables btn btn-danger pl-4 pr-4">TOLAK
+                              </a>
+                            @else
+                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn btn-primary pl-4 pr-4">SETUJU
+                                </a>                    
+                              <a href="/tolaks/{{$i->id}}" class="btn btn-danger pl-4 pr-4">TOLAK
+                              </a>
+                            @endif
                         </td>
                       </tr>
                     @endforeach

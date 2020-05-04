@@ -29,7 +29,9 @@
     Route::delete('/pegawai/delete/{id_user}','pegawaiController@destroy');
 
     //update
-    Route::get('/pegawaiedit/{id_user}','pegawaiController@edit');
+    Route::get('/pegawaiedit{id_user}','pegawaiController@edit');
+
+    Route::post('/pegawaiupdate{id_user}','pegawaiController@update');
 
     Route::get('/manajemenPegawai',function(){
         return view('manajemenPegawai');
@@ -157,3 +159,17 @@ Route::get('/updateGaji',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/pengajuan/setuju/{id}','CutiController@update');
+
+Route::get('/tolak/{id}','CutiController@tolak');
+
+Route::get('/ijin/setuju/{id}','IjinController@update');
+
+Route::get('/tolaks/{id}','IjinController@tolak');
+
+Route::get('/selesai/{id}','PenugasanController@selesai');
+
+ Route::get('/penugasan{id_user}','PenugasanController@edit');
+
+    Route::post('/penugasanupdate{id_user}','PenugasanController@update');

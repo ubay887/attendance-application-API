@@ -78,10 +78,24 @@ class CutiController extends Controller
      * @param  \App\Cuti  $cuti
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cuti $cuti)
+    public function update(Request $request, Cuti $cuti , $id)
     {
-        //
+        $cuti = Cuti::find($id);
+        $cuti->status="SETUJU";
+        $cuti->save();
+
+        return redirect("/pengajuan")->with('disableButton', true);
     }
+
+    public function tolak($id)
+    {
+        $cuti = Cuti::find($id);
+        $cuti->status="TOLAK";
+        $cuti->save();
+
+        return redirect("/pengajuan")->with('disableButton',true);
+    }
+
 
     /**
      * Remove the specified resource from storage.

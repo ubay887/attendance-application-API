@@ -41,7 +41,7 @@
                   <th>Foto</th>
                   <th scope="col">Nama</th>
                   <th scope="col">Email</th>                  
-                  <th scope="col" colspan="3" class="text-center">Aksi</th>
+                  <th scope="col" colspan="5" class="text-center">Aksi</th>
                 </thead>
                 <tbody>            
                   @if (session('status'))

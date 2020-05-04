@@ -11,7 +11,13 @@
 @endsection
 
 @section('contentPegawai')
-
+<style type="text/css">
+  .disables {
+          pointer-events: none;
+          cursor: default;
+          opacity: 40%;
+      }
+</style>
 <div class="row">
   <div class="col-12">
     <div class="row mt-3 ml-2">
@@ -45,13 +51,24 @@
                         <td>{{ $c->mulai_cuti }}</td>
                         <td>{{ $c->lama_cuti }}</td>
                         <td>2 Hari</td>
-                        <td>{{ $c->alasan }}</td>                        
-                        <td>                               
-                          <form action="/pengajuan/delete/{{ $c->id }}" method="post">
-                            @csrf
-                            @method('delete')                              
-                              <button class="btn btn-danger pl-4 pr-4">Tolak</button>
-                          </form>
+                        <td>{{ $c->alasan }}</td> 
+                        <td>
+                            @if($c->status=="TOLAK")
+                              <a href="/pengajuan/setuju/{{ $c->id }}" value="{{$c->id}}" class="btn btn-primary disables pl-4 pr-4">SETUJU
+                              </a>
+                              <a href="/" class="disables btn btn-danger pl-4 pr-4">TOLAK
+                              </a>
+                            @elseif($c->status=="SETUJU")
+                              <a href="/pengajuan/setuju/{{ $c->id }}" value="{{$c->id}}" class="btn disables btn-primary pl-4 pr-4">SETUJU
+                              </a>
+                              <a href="/" class="disables btn btn-danger pl-4 pr-4">TOLAK
+                              </a>
+                            @else
+                              <a href="/pengajuan/setuju/{{ $c->id }}" value="{{$c->id}}" class="btn btn-primary pl-4 pr-4">SETUJU
+                                </a>                    
+                              <a href="/tolak/{{$c->id}}" class="btn btn-danger pl-4 pr-4">TOLAK
+                              </a>
+                            @endif
                         </td>
                     </tr>
                   @endforeach

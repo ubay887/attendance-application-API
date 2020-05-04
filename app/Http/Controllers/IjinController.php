@@ -71,9 +71,22 @@ class IjinController extends Controller
      * @param  \App\Ijin  $ijin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ijin $ijin)
+    public function update(Request $request, Ijin $ijin, $id)
     {
-        //
+        $ijin = Ijin::find($id);
+        $ijin->status="SETUJU";
+        $ijin->save();
+
+        return redirect("/pengajuan")->with('disableButton', true);
+    }
+
+    public function tolak($id)
+    {
+        $ijin = Ijin::find($id);
+        $ijin->status="TOLAK";
+        $ijin->save();
+
+        return redirect("/pengajuan")->with('disableButton',true);
     }
 
     /**

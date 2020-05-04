@@ -80,9 +80,11 @@ class PenugasanController extends Controller
      * @param  \App\Penugasan  $penugasan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penugasan $penugasan)
+    public function edit(Penugasan $penugasan,$id_user)
     {
-        //
+        $pegawai = Pegawai::find($id_user);
+        $penugasan = Penugasan::all();
+        return view('editpenugasan',compact('penugasan','pegawai'));
     }
 
     /**
@@ -122,5 +124,12 @@ class PenugasanController extends Controller
         return 'tugas anda sudah diselesaikan';
     }
     
+    public function selesai($id)
+    {
+        $penugasan = Penugasan::find($id);
+        $penugasan->status="Selesai";
+        $penugasan->save();
 
+        return redirect("/penugasan")->with('disableButton',true);
+    }
 }
