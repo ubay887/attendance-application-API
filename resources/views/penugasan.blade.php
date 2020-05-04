@@ -38,6 +38,7 @@
               <th scope="col">Judul Tugas</th>
               <th scope="col">Detail Tugas</th>
               <th scope="col">Deadline</th>
+              <th scope="col">Status</th>
               <th scope="col" colspan="2">Aksi</th>
             </thead>
             <tbody>
@@ -50,32 +51,24 @@
                   <td>{{ $p->judul }}</td>
                   <td>{{ $p->detail }}</td>
                   <td>{{ $p->deadline }} </td>
-                   <!--  <form action="/penugasan/delete/{{ $p->id }}" method="post">
+                   @if($p->status== "")
+                  <td>SEDANG MENGERJAKAN</td>
+                  @else
+                  <td>{{ $p->status }}</td>
+                  @endif
+                  <td>
+                     <form action="/penugasan/delete/{{ $p->id }}" method="post">
                       @csrf
                       @method('delete')
-                      <input type="submit" value="selesai" class="btn btn-danger">
-                    </form> -->
-                    @if($p->status=="Selesai")
+                      <input type="submit" value="Batalkan" class="btn btn-danger">
+                    </form>
+                  </td>
                             <!-- <td>
                               <a href="/penugasan{{ $p->id_user}}" value="{{$p->id}}" class="btn disables btn-primary pl-4 pr-4">Edit
                               </a>
                             </td> -->
-                            <td>
-                              <a href="/" class="disables btn btn-danger pl-4 pr-4">Selesai
-                            </td>
-                              </a>
-                            @else
-                           <!--  <td>
-                              <a href="/penugasan{{ $p->id_user}}" value="{{$p->id}}" class="btn btn-primary pl-4 pr-4">Edit
-                              </a> -->                    
-                            <!-- </td> -->
-                            <td>
-                              <a href="/selesai/{{$p->id}}" class="btn btn-danger pl-4 pr-4">Selesai
-                            </td>
-                              </a>
-                            @endif
-                  </td>
-                </tr>                
+                           
+      </tr>                
               @endforeach
             </tbody>
           </table>

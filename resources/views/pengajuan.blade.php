@@ -38,7 +38,7 @@
                   <th scope="col">Nama</th>
                   <th scope="col">Tanggal Ajukan</th>
                   <th scope="col">Mulai Cuti</th>
-                  <th scope="col">Lama Hari</th>
+                  <th scope="col">status</th>
                   <th scope="col">Sisa Cuti</th>
                   <th scope="col">Keterangan</th>
                   <th scope="col" colspan="2">Aksi</th>
@@ -50,7 +50,11 @@
                         <td>{{ $c->tgl_ajukan }}</td>
                         <td>{{ $c->mulai_cuti }}</td>
                         <td>{{ $c->lama_cuti }}</td>
-                        <td>2 Hari</td>
+                        @if($c->status== "")
+                        <td>PROSES</td>
+                        @else
+                        <td>{{ $c->status }}</td>
+                        @endif
                         <td>{{ $c->alasan }}</td> 
                         <td>
                             @if($c->status=="TOLAK")

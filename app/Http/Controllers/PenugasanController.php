@@ -132,4 +132,13 @@ class PenugasanController extends Controller
 
         return redirect("/penugasan")->with('disableButton',true);
     }
+
+    public function kerja($id)
+    {
+        $penugasan = Penugasan::find($id);
+        $penugasan->status="SEDANG MENGERJAKAN";
+        $penugasan->save();
+
+        return redirect("/penugasan")->with('disableButton',true);
+    }
 }

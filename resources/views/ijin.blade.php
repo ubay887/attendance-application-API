@@ -41,6 +41,7 @@
                       <th scope="col">Mulai Ijin</th>
                       <th scope="col">Lama Hari</th>
                       <th scope="col">Alasan Ijin</th>
+                      <th scope="col">Status </th>
                       <th scope="col">Penjelasan Detail</th>
                       <th scope="col" colspan="2">Aksi</th>
                   </thead>
@@ -51,6 +52,11 @@
                           <td>{{$i->tgl_mulai}}</td>
                           <td>{{$i->lama_hari}}</td>
                           <td>{{$i->alasan_ijin}}</td>
+                          @if($i->status== "")
+                          <td>PROSES</td>
+                          @else
+                          <td>{{ $i->status }}</td>
+                          @endif
                           <td>{{$i->desc}}</td>
                         <td>
                             @if($i->status=="TOLAK")
