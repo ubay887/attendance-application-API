@@ -33,7 +33,8 @@ Route::get("/data_absensi/{user_id}","AbsenController@apiall");
 Route::post("/absen/{user_id}","AbsenController@absen");
 
 Route::get("/tugas/{user_id}","PenugasanController@apiall");
-Route::delete("/tugas/selesai/{id_tugas}","PenugasanController@hapuspenugasan");
+Route::post("/tugas/selesai/{id_tugas}","PenugasanController@selesaiuser");
+Route::post("/tugas/kerja/{id_tugas}","PenugasanController@kerjauser");
 
 Route::get("/tanggapan/{user_id}","TanggapanController@show");
 Route::post("/tanggapan","TanggapanController@store");

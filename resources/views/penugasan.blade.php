@@ -51,13 +51,13 @@
                   <td>{{ $p->judul }}</td>
                   <td>{{ $p->detail }}</td>
                   <td>{{ $p->deadline }} </td>
-                   @if($p->status== "")
-                  <td>SEDANG MENGERJAKAN</td>
+                  @if($p->status== "")
+                    <td>MENUGGU KONFIMASI PENGERJAAN</td>
                   @else
-                  <td>{{ $p->status }}</td>
+                    <td>{{ $p->status }}</td>
                   @endif
                   <td>
-                     <form action="/penugasan/delete/{{ $p->id }}" method="post">
+                    <form action="/penugasan/delete/{{ $p->id }}" method="post">
                       @csrf
                       @method('delete')
                       <input type="submit" value="Batalkan" class="btn btn-danger">
