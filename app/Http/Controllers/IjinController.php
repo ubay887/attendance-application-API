@@ -95,7 +95,7 @@ class IjinController extends Controller
      * @param  \App\Ijin  $ijin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ijin $ijin)
+    public function destroy($id)
     {
         $ijin = Ijin::findOrFail($id)->delete();
         return redirect('/ijin');

@@ -42,8 +42,8 @@
                       <th scope="col">Lama Hari</th>
                       <th scope="col">Alasan Ijin</th>
                       <th scope="col">Status </th>
-                      <th scope="col">Penjelasan Detail</th>
-                      <th scope="col" colspan="2">Aksi</th>
+                      <th scope="col">Detail</th>
+                      <th scope="col" colspan="">Aksi</th>
                   </thead>
                   <tbody>
                     @foreach($ijin as $i)
@@ -60,20 +60,35 @@
                           <td>{{$i->desc}}</td>
                         <td>
                             @if($i->status=="TOLAK")
-                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn btn-primary disables pl-4 pr-4">SETUJU
+                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn btn-primary disables">SETUJU
                               </a>
-                              <a href="/" class="disables btn btn-danger pl-4 pr-4">TOLAK
+                              <a href="/" class="disables btn btn-danger">TOLAK
                               </a>
+                              <form action="/ijin/delete/{{ $i->id }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" value="BATAL" class="btn btn-warning disables mt-1">
+                              </form>
                             @elseif($i->status=="SETUJU")
-                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn disables btn-primary pl-4 pr-4">SETUJU
+                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn disables btn-primary">SETUJU
                               </a>
-                              <a href="/" class="disables btn btn-danger pl-4 pr-4">TOLAK
+                              <a href="/" class="disables btn btn-danger">TOLAK
                               </a>
+                              <form action="/ijin/delete/{{ $i->id }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" value="BATAL" class="btn btn-warning disables mt-1">
+                              </form>
                             @else
-                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn btn-primary pl-4 pr-4">SETUJU
+                              <a href="/ijin/setuju/{{ $i->id }}" value="{{$i->id}}" class="btn btn-primary">SETUJU
                                 </a>                    
-                              <a href="/tolaks/{{$i->id}}" class="btn btn-danger pl-4 pr-4">TOLAK
+                              <a href="/tolaks/{{$i->id}}" class="btn btn-danger">TOLAK
                               </a>
+                              <form action="/ijin/delete/{{ $i->id }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" value="BATAL" class="btn btn-warning mt-1">
+                              </form>
                             @endif
                         </td>
                       </tr>

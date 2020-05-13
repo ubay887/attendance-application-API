@@ -62,16 +62,31 @@
                               </a>
                               <a href="/" class="disables btn btn-danger pl-4 pr-4">TOLAK
                               </a>
+                              <form action="/pengajuan/delete/{{ $c->id }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" value="BATAL" class="btn btn-warning disables mt-1">
+                              </form>
                             @elseif($c->status=="SETUJU")
                               <a href="/pengajuan/setuju/{{ $c->id }}" value="{{$c->id}}" class="btn disables btn-primary pl-4 pr-4">SETUJU
                               </a>
                               <a href="/" class="disables btn btn-danger pl-4 pr-4">TOLAK
                               </a>
+                              <form action="/pengajuan/delete/{{ $c->id }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" value="BATAL" class="btn btn-warning disables mt-1">
+                              </form>
                             @else
                               <a href="/pengajuan/setuju/{{ $c->id }}" value="{{$c->id}}" class="btn btn-primary pl-4 pr-4">SETUJU
                                 </a>                    
                               <a href="/tolak/{{$c->id}}" class="btn btn-danger pl-4 pr-4">TOLAK
                               </a>
+                              <form action="/pengajuan/delete/{{ $c->id }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" value="BATAL" class="btn btn-warning  mt-1">
+                              </form>
                             @endif
                         </td>
                     </tr>
