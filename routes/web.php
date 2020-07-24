@@ -172,6 +172,6 @@ Route::get('/selesai/{id}','PenugasanController@selesai');
 
 Route::get('/kerja/{id}','PenugasanController@selesai');
 
- Route::get('/penugasan{id_user}','PenugasanController@edit');
+Route::get('/penugasan{id_user}','PenugasanController@edit');
 
-    Route::post('/penugasanupdate{id_user}','PenugasanController@update');
+Route::post('/penugasanupdate{id_user}','PenugasanController@update');
