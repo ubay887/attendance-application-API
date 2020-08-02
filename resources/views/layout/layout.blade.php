@@ -68,6 +68,12 @@
     @endguest
 
   </nav>
+        @if(\Session::has('error'))
+          <div class="alert alert-danger" style="margin-top: 250px; margin-bottom: 400px;">
+              <center>{{\Session::get('error')}}</center>
+          </div>
+
+      @endif
 
   <div id="wrapper">
 
@@ -121,7 +127,6 @@
 
             <!-- icon item -->
             <div class="row">
-
               <div class="col-12">
                 <div class="row">
                   <div class="col-9">

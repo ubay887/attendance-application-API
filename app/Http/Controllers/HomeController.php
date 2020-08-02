@@ -51,4 +51,9 @@ class HomeController extends Controller
             "absens"=>$absens
         ]);
     }
+
+    public function index1()
+    {
+        return view('kembali');
+    }
 }

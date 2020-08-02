@@ -11,8 +11,16 @@
 </head>
 <body class="page-top">
 {{ Auth::user() }}
+<!--     <div class="row">
+        @if(\Session::has('error'))
+          <div class="alert alert-danger" style="margin-top: 250px; margin-bottom: 400px;">
+              <center>{{\Session::get('error')}}</center>
+          </div>
+
+      @endif
+    </div> -->
 <div class="container">
-     
+
     <div class="row justify-content-center">
         <div class="col-6">
             <img src="img/login.png" class="" style="margin-left:0px;width: 600px;height: 450px;margin-top: 80px;margin-right: -50px;">

@@ -11,17 +11,33 @@
 |
 */
 
-    Route::get('/','HomeController@index');
+    // Route::get('/','HomeController@index');
+    Route::get('/err','HomeController@index1');
+    // Route::get('/error','Auth\LoginController@index');
+
 
     Route::get('/chart',function(){
         return view('chart');
     });
 
+   // Route::get('/login',function(){
+   //      return view('login');
+   //  });
+
+    Route::group(['middleware' => ['auth', 'checkAdmin']], function () {
+    Route::get('/','HomeController@index');
+
+});
+
 //crud pegawai
+    Route::post('/login','Auth\LoginController@login')->middleware('checkAdmin'); 
+
+    // Route::post('/login','Auth\LoginController@login');
 
     //index
     Route::get('/pegawai','pegawaiController@index');
 
+    // Route::get('/','HomeController@index');
     //submit 
     Route::post('/pegawai/submit', 'pegawaiController@store');
 
@@ -156,6 +172,8 @@ Route::get('/updateGaji',function(){
 
     Route::delete('/slipGaji/delete/{id}','GajiController@destroy');
 //end tambah gaji
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -38,8 +38,8 @@
                   <th scope="col">Nama</th>
                   <th scope="col">Tanggal Ajukan</th>
                   <th scope="col">Mulai Cuti</th>
-                  <th scope="col">status</th>
                   <th scope="col">Sisa Cuti</th>
+                  <th scope="col">status</th>
                   <th scope="col">Keterangan</th>
                   <th scope="col" colspan="2">Aksi</th>
                 </thead>
