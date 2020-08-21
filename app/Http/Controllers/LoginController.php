@@ -34,6 +34,7 @@ class LoginController extends Controller
                             [
                                 "message" => 'LOGIN BERHASIL',
                                 "user_id" => $u->id_user,
+                                "username" => $u->nama,
                             ]
                         );
                     }else{

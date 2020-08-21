@@ -51,7 +51,7 @@ class RegistrationController extends Controller
 
         $registrasi->save();
 
-        return 'data sudah berhasil masuk';
+        return ' registrasi berhasil ';
 
     }
 

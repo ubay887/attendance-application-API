@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/register','pegawaiController@apiRegister');
+// Route::post('/register','pegawaiController@apiRegister');
 
 Route::get('/gaji/{id}','GajiController@apiall');
 Route::post('/gaji','GajiController@apitambah');
@@ -39,7 +39,6 @@ Route::post("/tugas/kerja/{id_tugas}","PenugasanController@kerjauser");
 Route::get("/tanggapan/{user_id}","TanggapanController@show");
 Route::post("/tanggapan","TanggapanController@store");
 
-Route::get('/registrasi','RegistrationController@index');
 Route::post('/registrasi','RegistrationController@store');
 
 Route::post('/login','LoginController@index');
